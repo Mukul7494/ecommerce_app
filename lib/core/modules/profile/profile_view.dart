@@ -1,11 +1,13 @@
-import 'package:ecomerce_app/core/modules/prefrences/user_prefrences.dart';
+import 'package:ecomerce_app/core/modules/profile/prefrences/user_prefrences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../theme/shared/controllers/theme_controller.dart';
 import '../../../theme/utils/app_sizes.dart';
+import '../../router.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({
@@ -36,10 +38,8 @@ class ProfileView extends StatelessWidget {
         ElevatedButton(child: const Text('Login/SignUp'), onPressed: () => ''),
         gapH8,
         ElevatedButton(
-          child: const Text('Settings'),
-          onPressed: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => UserPrefrences())),
-        )
+            child: const Text('Settings'),
+            onPressed: () => context.go('/theme')),
       ],
     );
   }

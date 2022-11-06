@@ -4,6 +4,7 @@ import 'package:ecomerce_app/core/modules/home/home_view.dart';
 import 'package:ecomerce_app/core/modules/home/widget/build_menu.dart';
 import 'package:ecomerce_app/core/modules/orders/order_view.dart';
 import 'package:ecomerce_app/core/modules/profile/profile_view.dart';
+import 'package:ecomerce_app/unplaced/floatingReportbtn.dart';
 import 'package:ecomerce_app/utils/replaced_range.dart';
 
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
@@ -64,87 +65,94 @@ class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return SideMenu(
-      key: _sideMenuKey,
-      menu: buildMenu(),
-      type: SideMenuType.shrinkNSlide,
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          leading: IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () {
-              final state = _sideMenuKey.currentState;
-              if (state!.isOpened) {
-                state.closeSideMenu();
-              } else {
-                state.openSideMenu();
-              }
-            },
+    return Consumer(
+      builder: (BuildContext context, WidgetRef ref, Widget? child) {
+        return SideMenu(
+          key: _sideMenuKey,
+          menu: const BuildMenu(),
+          type: SideMenuType.shrinkNSlide,
+          child: Scaffold(
+            appBar: AppBar(
+              centerTitle: true,
+              leading: IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () {
+                  final state = _sideMenuKey.currentState;
+                  if (state!.isOpened) {
+                    state.closeSideMenu();
+                  } else {
+                    state.openSideMenu();
+                  }
+                },
+              ),
+              title: const Text('U-SHOP'),
+            ),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerFloat,
+            floatingActionButton: const FloatinReportBtn(),
+            bottomNavigationBar: NavigationBar(
+              selectedIndex: _controller.index,
+              onDestinationSelected: (index) =>
+                  context.go('/dashboard/${dashBoardTabs[index]}'),
+              destinations: [
+                NavigationDestination(
+                  selectedIcon: const Icon(
+                    EvaIcons.homeOutline,
+                  ),
+                  icon: const Icon(
+                    EvaIcons.home,
+                  ),
+                  label: dashBoardTabs[0].toCapitalized(),
+                ),
+                NavigationDestination(
+                  selectedIcon: const Icon(
+                    EvaIcons.shoppingBagOutline,
+                  ),
+                  icon: const Icon(
+                    EvaIcons.shoppingBag,
+                  ),
+                  label: dashBoardTabs[1].toCapitalized(),
+                ),
+                NavigationDestination(
+                  selectedIcon: const Icon(
+                    EvaIcons.shoppingCartOutline,
+                  ),
+                  icon: const Icon(
+                    EvaIcons.shoppingCart,
+                  ),
+                  label: dashBoardTabs[2].toCapitalized(),
+                ),
+                NavigationDestination(
+                  selectedIcon: const Icon(
+                    EvaIcons.personOutline,
+                  ),
+                  icon: const Icon(
+                    EvaIcons.person,
+                  ),
+                  label: dashBoardTabs[3].toCapitalized(),
+                ),
+              ],
+            ),
+            body: TabBarView(
+              controller: _controller,
+              physics: const NeverScrollableScrollPhysics(),
+              children: _buildScreens(),
+            ),
           ),
-          title: const Text('U-SHOP'),
-        ),
-        bottomNavigationBar: NavigationBar(
-          selectedIndex: _controller.index,
-          onDestinationSelected: (index) =>
-              context.go('/dashboard/${dashBoardTabs[index]}'),
-          destinations: [
-            NavigationDestination(
-              selectedIcon: const Icon(
-                EvaIcons.homeOutline,
-              ),
-              icon: const Icon(
-                EvaIcons.home,
-              ),
-              label: dashBoardTabs[0].toCapitalized(),
-            ),
-            NavigationDestination(
-              selectedIcon: const Icon(
-                EvaIcons.shoppingBagOutline,
-              ),
-              icon: const Icon(
-                EvaIcons.shoppingBag,
-              ),
-              label: dashBoardTabs[1].toCapitalized(),
-            ),
-            NavigationDestination(
-              selectedIcon: const Icon(
-                EvaIcons.shoppingCartOutline,
-              ),
-              icon: const Icon(
-                EvaIcons.shoppingCart,
-              ),
-              label: dashBoardTabs[2].toCapitalized(),
-            ),
-            NavigationDestination(
-              selectedIcon: const Icon(
-                EvaIcons.personOutline,
-              ),
-              icon: const Icon(
-                EvaIcons.person,
-              ),
-              label: dashBoardTabs[3].toCapitalized(),
-            ),
-          ],
-        ),
-        body: TabBarView(
-          controller: _controller,
-          physics: const NeverScrollableScrollPhysics(),
-          children: _buildScreens(),
-        ),
-      ),
-      //  error: (error, stack) => Material(
-      //       child: Center(
-      //         child: Text(
-      //           error.toString(),
-      //         ),
-      //       ),
-      //     ),
-      // loading: () => const Material(
-      //       child: Center(
-      //         child: CircularProgressIndicator(),
-      //       ),
-      //     ),
+          // error: (error, stack) => Material(
+          //   child: Center(
+          //     child: Text(
+          //       error.toString(),
+          //     ),
+          //   ),
+          // ),
+          // loading: () => const Material(
+          //   child: Center(
+          //     child: CircularProgressIndicator(),
+          //   ),
+          // ),
+        );
+      },
     );
   }
 }

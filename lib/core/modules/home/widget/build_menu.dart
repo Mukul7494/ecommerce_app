@@ -1,10 +1,14 @@
 import 'package:ecomerce_app/theme/utils/app_sizes.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-Widget buildMenu() {
-  return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(vertical: 50.0),
+class BuildMenu extends StatelessWidget {
+  const BuildMenu({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,6 +50,14 @@ Widget buildMenu() {
           ),
           ListTile(
             onTap: () {},
+            leading: const Icon(Icons.category_outlined,
+                size: 20.0, color: Colors.white),
+            title: const Text("Categories"),
+            textColor: Colors.white,
+            dense: true,
+          ),
+          ListTile(
+            onTap: () {},
             leading: const Icon(Icons.monetization_on,
                 size: 20.0, color: Colors.white),
             title: const Text("Wallet"),
@@ -66,42 +78,89 @@ Widget buildMenu() {
             onTap: () {},
             leading: const Icon(Icons.support_agent,
                 size: 20.0, color: Colors.white),
-            title: const Text("Customer Service"),
+            title: const Text("Customer Support"),
             textColor: Colors.white,
             dense: true,
           ),
+          ListTile(
+            onTap: () {},
+            leading: const Icon(Icons.info, size: 20.0, color: Colors.white),
+            title: const Text("About Us"),
+            textColor: Colors.white,
+            dense: true,
+          ),
+          // ClipOval(
+          //   clipper: MyClip(),
+          //   child: ListTile(
+          //     leading: IconButton(
+          //       alignment: Alignment.bottomLeft,
+          //       icon: const Icon(
+          //         EvaIcons.settings,
+          //         color: Colors.white,
+          //         size: 30,
+          //       ),
+          //       onPressed: () {
+          //         context.go('/theme');
+          //       },
+          //     ),
+          //   ),
+          // ),
+
           const SizedBox(
-            height: 160,
+            height: 140,
           ),
-          ClipOval(
-            clipper: MyClip(),
-            child: ListTile(
-              leading: IconButton(
-                alignment: Alignment.bottomLeft,
-                icon: const Icon(
-                  EvaIcons.settings,
-                  size: 30,
+          Container(
+            color: Colors.black,
+            width: double.infinity,
+            height: 0.2,
+          ),
+          Align(
+            alignment: FractionalOffset.bottomCenter,
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  onTap: () {
+                    context.push("/theme");
+                  },
+                  leading: const Icon(
+                    Icons.settings,
+                    color: Colors.white,
+                  ),
+                  title: const Text(
+                    'Settings',
+                  ),
+                  textColor: Colors.white,
+                  dense: true,
                 ),
-                onPressed: () => '',
-              ),
+                const ListTile(
+                  leading: Icon(
+                    Icons.help,
+                    color: Colors.white,
+                  ),
+                  title: Text('Help and Feedback'),
+                  textColor: Colors.white,
+                  dense: true,
+                )
+              ],
             ),
           ),
-          gapH8,
-          ClipOval(
-            clipper: MyClip(),
-            child: ListTile(
-              leading: IconButton(
-                alignment: Alignment.bottomCenter,
-                icon: const Icon(
-                  EvaIcons.logOut,
-                  size: 40,
+
+          Container(
+              padding: const EdgeInsets.only(left: 150),
+              height: 100,
+              child: const Text(
+                "     V0.0.1\nBuild By Mohit",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(202, 224, 118, 69),
                 ),
-                onPressed: () => '',
+              )
+              // const Text('Build By Mohit +  V0.19')
               ),
-            ),
-          ),
         ],
-      ));
+      ),
+    );
+  }
 }
 
 class MyClip extends CustomClipper<Rect> {

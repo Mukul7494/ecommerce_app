@@ -1,11 +1,12 @@
 import 'package:ecomerce_app/theme/shared/services/theme_service.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../../theme/shared/controllers/theme_controller.dart';
-import '../../../theme/shared/services/theme_service_hive.dart';
-import '../../../theme/shared/widgets/universal/theme_mode_switch.dart';
-import '../../../theme/shared/widgets/universal/theme_selector.dart';
-import '../../../theme/widgets/dialogs/reset_settings_dialog.dart';
+import '../../../../theme/shared/controllers/theme_controller.dart';
+import '../../../../theme/shared/services/theme_service_hive.dart';
+import '../../../../theme/shared/widgets/universal/theme_mode_switch.dart';
+import '../../../../theme/shared/widgets/universal/theme_selector.dart';
+import '../../../../theme/widgets/dialogs/reset_settings_dialog.dart';
 
 class UserPrefrences extends StatelessWidget {
   const UserPrefrences({
@@ -16,9 +17,15 @@ class UserPrefrences extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              context.push('/');
+            },
+            icon: const Icon(Icons.arrow_back_ios_new),
+          ),
           title: const Text(
-        "Customize App",
-      )),
+            "Customize App",
+          )),
       body: Column(
         children: [
           Expanded(
