@@ -1,8 +1,8 @@
-import 'package:ecomerce_app/generated/addon/responsive_center.dart';
+import 'package:ecomerce_app/addon/responsive_center.dart';
 import 'package:flutter/material.dart';
 
-import '../../constants/breeakpoints.dart';
-import '../../theme/utils/app_sizes.dart';
+import '../constants/breeakpoints.dart';
+import '../theme/utils/app_sizes.dart';
 
 /// Scrollable widget that shows a responsive card with a given child widget.
 /// Useful for displaying forms and other widgets that need to be scrollable.

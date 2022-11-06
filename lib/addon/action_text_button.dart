@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../theme/utils/app_sizes.dart';
+import '../theme/utils/app_sizes.dart';
 
 /// Text button to be used as an [AppBar] action
 class ActionTextButton extends StatelessWidget {

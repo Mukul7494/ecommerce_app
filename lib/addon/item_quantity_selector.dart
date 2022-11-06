@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../theme/utils/app_sizes.dart';
+import '../theme/utils/app_sizes.dart';
 
 /// Item quantity selector with +/- buttons and a text value in the middle
 class ItemQuantitySelector extends StatelessWidget {

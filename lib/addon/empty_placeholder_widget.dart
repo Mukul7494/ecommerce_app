@@ -1,10 +1,10 @@
-import 'package:ecomerce_app/generated/addon/primary_button.dart';
+import 'package:ecomerce_app/addon/primary_button.dart';
 import 'package:ecomerce_app/utils/replaced_range.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../core/router.dart';
-import '../../theme/utils/app_sizes.dart';
+import '../core/router.dart';
+import '../theme/utils/app_sizes.dart';
 
 /// Placeholder widget showing a message and CTA to go back to the home screen.
 class EmptyPlaceholderWidget extends StatelessWidget {

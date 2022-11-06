@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../generated/addon/alert_dialogs.dart';
-import 'app_exception.dart';
+import '../addon/alert_dialogs.dart';
+import '../generated/app_exception.dart';
 
 extension StringHardcoded on String {
   String get hardcoded => this;
@@ -56,4 +56,17 @@ extension AsyncValueUI on AsyncValue {
       return error.toString();
     }
   }
+}
+
+extension StringCasingExtension on String {
+  String toCapitalized() =>
+      length > 0 ? '${this[0].toUpperCase()}${substring(1)}' : '';
+  String toTitleCase() => replaceAll(RegExp(' +'), ' ')
+      .split(' ')
+      .map((str) => str.toCapitalized())
+      .join(' ');
+
+  String toInitials() => isNotEmpty
+      ? trim().split(RegExp(' +')).map((s) => s[0]).take(2).join()
+      : this;
 }

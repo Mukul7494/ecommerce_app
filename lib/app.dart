@@ -7,7 +7,7 @@ import 'package:ecomerce_app/theme/shared/controllers/theme_controller.dart';
 import 'package:ecomerce_app/theme/shared/utils/app_scroll_behavior.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 
 import 'core/router.dart';
 
@@ -19,17 +19,15 @@ class MyApp extends ConsumerWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final router = ref.watch(routerProvider);
+    final GoRouter router = ref.watch(routerProvider);
     return AnimatedBuilder(
         animation: controller,
         builder: (BuildContext context, Widget? child) {
-          return MaterialApp(
+          return MaterialApp.router(
             themeMode: controller.themeMode,
-            home: const DashBoard(),
             // routerConfig: router,
             title: 'eCommerce_App',
             scrollBehavior: const AppScrollBehavior(),
-
             theme: controller.useFlexColorScheme
                 ? flexThemeLight(controller)
                 : themeDataLight(controller),
@@ -40,9 +38,9 @@ class MyApp extends ConsumerWidget {
             //   FormBuilderLocalizations.delegate,
             // ],
             debugShowCheckedModeBanner: false,
-            // routerDelegate: router.routerDelegate,
-            // routeInformationParser: router.routeInformationParser,
-            // routeInformationProvider: router.routeInformationProvider,
+            routerDelegate: router.routerDelegate,
+            routeInformationParser: router.routeInformationParser,
+            routeInformationProvider: router.routeInformationProvider,
           );
         });
   }

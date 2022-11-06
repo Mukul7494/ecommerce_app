@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import 'app_exception.dart';
+import '../generated/app_exception.dart';
 
 class ErrorLogger {
   void logError(Object error, StackTrace? stackTrace) {
