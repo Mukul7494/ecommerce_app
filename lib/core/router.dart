@@ -2,6 +2,7 @@ import 'package:ecomerce_app/core/modules/profile/prefrences/user_prefrences.dar
 import 'package:ecomerce_app/unplaced/Aboutus.dart';
 import 'package:ecomerce_app/unplaced/contact.dart';
 import 'package:ecomerce_app/unplaced/notification.dart';
+import 'package:ecomerce_app/unplaced/undermaintainace.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -65,6 +66,12 @@ final routerProvider = Provider<GoRouter>((ref) {
           path: '/contactus',
           pageBuilder: (context, state) {
             return const MaterialPage(child: ContactView());
+          },
+        ),
+        GoRoute(
+          path: '/notice',
+          pageBuilder: (context, state) {
+            return const MaterialPage(child: WorkingProgress());
           },
         ),
       ]);

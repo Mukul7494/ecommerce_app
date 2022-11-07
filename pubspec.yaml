@@ -99,7 +99,12 @@ dependencies:
   url_launcher: ^6.1.5
 
   # Inversion of control
+
+  csv: ^5.0.1
+  universal_io: ^2.0.4
   logger: ^1.1.0
+  overlay_support: ^2.0.1
+  package_info_plus: ^1.4.2
  
   # Others
   flutter_hooks: ^0.18.5+1

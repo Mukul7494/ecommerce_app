@@ -38,14 +38,18 @@ class BuildMenu extends StatelessWidget {
             height: 0.2,
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              context.push('/');
+            },
             leading: const Icon(Icons.home, size: 20.0, color: Colors.white),
             title: const Text("Home"),
             textColor: Colors.white,
             dense: true,
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              context.go('/notice');
+            },
             leading:
                 const Icon(EvaIcons.percent, size: 20.0, color: Colors.white),
             title: const Text("Offers"),
@@ -55,7 +59,9 @@ class BuildMenu extends StatelessWidget {
             // padding: EdgeInsets.zero,
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              context.go('/notice');
+            },
             leading: const Icon(Icons.category_outlined,
                 size: 20.0, color: Colors.white),
             title: const Text("Categories"),
@@ -63,17 +69,19 @@ class BuildMenu extends StatelessWidget {
             dense: true,
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              context.go('/notice');
+            },
             leading: const Icon(Icons.monetization_on,
                 size: 20.0, color: Colors.white),
             title: const Text("Wallet"),
             textColor: Colors.white,
             dense: true,
-
-            // padding: EdgeInsets.zero,
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              context.go('/notice');
+            },
             leading:
                 const Icon(Icons.star_border, size: 20.0, color: Colors.white),
             title: const Text("Favorites"),
@@ -142,12 +150,15 @@ class BuildMenu extends StatelessWidget {
                   textColor: Colors.white,
                   dense: true,
                 ),
-                const ListTile(
-                  leading: Icon(
+                ListTile(
+                  onTap: () {
+                    context.push("/contactus");
+                  },
+                  leading: const Icon(
                     Icons.help,
                     color: Colors.white,
                   ),
-                  title: Text('Help and Feedback'),
+                  title: const Text('Help and Feedback'),
                   textColor: Colors.white,
                   dense: true,
                 )
