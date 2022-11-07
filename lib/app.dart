@@ -5,11 +5,12 @@ import 'package:ecomerce_app/theme/core/theme_data_dark.dart';
 import 'package:ecomerce_app/theme/core/theme_data_light.dart';
 import 'package:ecomerce_app/theme/shared/controllers/theme_controller.dart';
 import 'package:ecomerce_app/theme/shared/utils/app_scroll_behavior.dart';
+import 'package:ecomerce_app/utils/replaced_range.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import 'core/router.dart';
+import 'core/router/go_router.dart';
 
 class MyApp extends ConsumerWidget {
   final ThemeController controller;
@@ -19,14 +20,15 @@ class MyApp extends ConsumerWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final GoRouter router = ref.watch(routerProvider);
+    final router = ref.watch(routerProvider);
     return AnimatedBuilder(
         animation: controller,
         builder: (BuildContext context, Widget? child) {
           return MaterialApp.router(
+            restorationScopeId: 'app',
+
             themeMode: controller.themeMode,
-            // routerConfig: router,
-            title: 'eCommerce_App',
+            onGenerateTitle: (BuildContext context) => 'Flutter Shop'.hardcoded,
             scrollBehavior: const AppScrollBehavior(),
             theme: controller.useFlexColorScheme
                 ? flexThemeLight(controller)

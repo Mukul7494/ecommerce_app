@@ -11,7 +11,7 @@ import 'package:utils_widget/utils_widget.dart';
 
 import '../../../theme/shared/controllers/theme_controller.dart';
 import '../../../theme/utils/app_sizes.dart';
-import '../../router.dart';
+import '../../router/go_router.dart';
 
 // class ProfileView extends StatelessWidget {
 //   const ProfileView({

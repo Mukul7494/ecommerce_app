@@ -107,23 +107,6 @@ class BuildMenu extends StatelessWidget {
             textColor: Colors.white,
             dense: true,
           ),
-          // ClipOval(
-          //   clipper: MyClip(),
-          //   child: ListTile(
-          //     leading: IconButton(
-          //       alignment: Alignment.bottomLeft,
-          //       icon: const Icon(
-          //         EvaIcons.settings,
-          //         color: Colors.white,
-          //         size: 30,
-          //       ),
-          //       onPressed: () {
-          //         context.go('/theme');
-          //       },
-          //     ),
-          //   ),
-          // ),
-
           const SizedBox(
             height: 140,
           ),
@@ -165,7 +148,6 @@ class BuildMenu extends StatelessWidget {
               ],
             ),
           ),
-
           Container(
               padding: const EdgeInsets.only(left: 150),
               height: 100,

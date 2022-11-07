@@ -1,5 +1,5 @@
-import 'package:ecomerce_app/core/modules/home/slider.dart';
-import 'package:ecomerce_app/core/modules/home/sorting.dart';
+import 'package:ecomerce_app/core/modules/home/widget/slider.dart';
+import 'package:ecomerce_app/core/modules/home/widget/sorting.dart';
 import 'package:ecomerce_app/theme/utils/app_sizes.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';

@@ -13,6 +13,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shrink_sidemenu/shrink_sidemenu.dart';
 
+import '../../../addon/action_text_button.dart';
+import '../../router/go_router.dart';
+import '../auth/provider.dart';
+import 'Custom_AppBar/more_menu.dart';
+import 'Custom_AppBar/shopping_cart.dart';
+
 class DashBoard extends StatefulWidget {
   DashBoard({
     required String selectedTab,
@@ -67,6 +73,7 @@ class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
+        final user = ref.watch(authStateChangesProvider).value;
         return SideMenu(
           key: _sideMenuKey,
           menu: const BuildMenu(),
@@ -88,27 +95,26 @@ class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
                   }
                 },
               ),
+              title: Text('My Shop'.hardcoded),
               actions: [
-                TextButton(
-                  onPressed: () => context.go('/LoginPage'),
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
+                if (user != null) ...[
+                  ActionTextButton(
+                    key: MoreMenuButton.ordersKey,
+                    text: 'Orders'.hardcoded,
+                    onPressed: () => context.pushNamed(AppRoute.orders.name),
                   ),
-                ),
-                IconButton(
-                  onPressed: () => context.push('/notification'),
-                  icon: const Icon(
-                    Icons.notifications,
-                    color: Color.fromARGB(255, 11, 230, 120),
+                  ActionIconButton(
+                    key: MoreMenuButton.accountKey,
+                    onPressed: () => context.pushNamed(AppRoute.account.name),
                   ),
-                  tooltip: 'Notifications',
-                ),
-                const SizedBox(
-                  width: 15,
-                )
+                ] else
+                  ActionTextButton(
+                    key: MoreMenuButton.signInKey,
+                    text: 'Sign In'.hardcoded,
+                    onPressed: () => context.pushNamed(AppRoute.signIn.name),
+                  ),
+                const ShoppingCartIcon(),
               ],
-              title: const Text('My Shop'),
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerFloat,

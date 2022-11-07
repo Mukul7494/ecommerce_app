@@ -9,16 +9,26 @@ class ActionTextButton extends StatelessWidget {
   final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: Sizes.p16),
-      child: TextButton(
-        onPressed: onPressed,
-        child: Text(text,
-            style: Theme.of(context)
-                .textTheme
-                .headline6!
-                .copyWith(color: Colors.white)),
-      ),
+    return TextButton(
+      onPressed: onPressed,
+      child: Text(text,
+          style: Theme.of(context)
+              .textTheme
+              .titleMedium!
+              .copyWith(color: Color.fromARGB(255, 245, 248, 244))),
+    );
+  }
+}
+
+class ActionIconButton extends StatelessWidget {
+  const ActionIconButton({super.key, this.onPressed});
+
+  final VoidCallback? onPressed;
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: onPressed,
+      icon: Icon(Icons.person),
     );
   }
 }
