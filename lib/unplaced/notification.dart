@@ -17,9 +17,9 @@ class _NotificationViewState extends State<NotificationView> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            context.go('/DashBoard');
+            context.go('/');
           },
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
         ),
         title: const Text('notification'),
       ),

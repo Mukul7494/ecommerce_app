@@ -73,9 +73,12 @@ class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
           type: SideMenuType.shrinkNSlide,
           child: Scaffold(
             appBar: AppBar(
-              centerTitle: true,
+              centerTitle: false,
               leading: IconButton(
-                icon: const Icon(Icons.menu),
+                icon: const Icon(
+                  Icons.menu_rounded,
+                  color: Colors.white,
+                ),
                 onPressed: () {
                   final state = _sideMenuKey.currentState;
                   if (state!.isOpened) {
@@ -85,7 +88,27 @@ class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
                   }
                 },
               ),
-              title: const Text('U-SHOP'),
+              actions: [
+                TextButton(
+                  onPressed: () => context.go('/LoginPage'),
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () => context.push('/notification'),
+                  icon: const Icon(
+                    Icons.notifications,
+                    color: Color.fromARGB(255, 11, 230, 120),
+                  ),
+                  tooltip: 'Notifications',
+                ),
+                const SizedBox(
+                  width: 15,
+                )
+              ],
+              title: const Text('My Shop'),
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerFloat,

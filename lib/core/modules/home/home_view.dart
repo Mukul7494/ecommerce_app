@@ -1,16 +1,13 @@
 import 'package:ecomerce_app/core/modules/home/slider.dart';
 import 'package:ecomerce_app/core/modules/home/sorting.dart';
-import 'package:ecomerce_app/core/modules/home/speed_dial.dart';
 import 'package:ecomerce_app/theme/utils/app_sizes.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../unplaced/floatingright.dart';
+import 'widget/text_widget.dart';
 
 class HomeView extends ConsumerWidget {
   const HomeView({
@@ -20,13 +17,13 @@ class HomeView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      floatingActionButton: const FloatingMenu(),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.all(5),
         child: Column(
           children: [
             const BannerView(),
+            buildCustomText(),
             Hero(
               tag: 'search',
               child: Card(
@@ -50,8 +47,6 @@ class HomeView extends ConsumerWidget {
                 ),
               ),
             ),
-            Text('Shop Between 1000 of Product',
-                style: Theme.of(context).textTheme.headline4),
             const PriceSort(),
             LottieBuilder.asset(
               'assets/lottie/nodata.json',

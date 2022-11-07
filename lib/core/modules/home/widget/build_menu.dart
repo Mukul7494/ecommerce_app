@@ -20,6 +20,7 @@ class BuildMenu extends StatelessWidget {
               children: const [
                 CircleAvatar(
                   backgroundColor: Colors.white,
+                  backgroundImage: AssetImage('assets/images/person.jpg'),
                   radius: 22.0,
                 ),
                 gapH16,
@@ -30,6 +31,11 @@ class BuildMenu extends StatelessWidget {
                 gapH20,
               ],
             ),
+          ),
+          Container(
+            color: Colors.black,
+            width: double.infinity,
+            height: 0.2,
           ),
           ListTile(
             onTap: () {},
@@ -75,7 +81,9 @@ class BuildMenu extends StatelessWidget {
             dense: true,
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              context.push("/contactus");
+            },
             leading: const Icon(Icons.support_agent,
                 size: 20.0, color: Colors.white),
             title: const Text("Customer Support"),
@@ -83,7 +91,9 @@ class BuildMenu extends StatelessWidget {
             dense: true,
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              context.push("/aboutus");
+            },
             leading: const Icon(Icons.info, size: 20.0, color: Colors.white),
             title: const Text("About Us"),
             textColor: Colors.white,
@@ -120,7 +130,7 @@ class BuildMenu extends StatelessWidget {
               children: <Widget>[
                 ListTile(
                   onTap: () {
-                    context.push("/theme");
+                    context.push("/settings");
                   },
                   leading: const Icon(
                     Icons.settings,
@@ -149,14 +159,12 @@ class BuildMenu extends StatelessWidget {
               padding: const EdgeInsets.only(left: 150),
               height: 100,
               child: const Text(
-                "     V0.0.1\nBuild By Mohit",
+                "   V0.0.1[dev]\nBuild By Mohit",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(202, 224, 118, 69),
                 ),
-              )
-              // const Text('Build By Mohit +  V0.19')
-              ),
+              )),
         ],
       ),
     );

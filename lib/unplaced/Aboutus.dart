@@ -16,9 +16,9 @@ class _AboutUsState extends State<AboutUs> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            context.go('/DashBoard');
+            context.go('/');
           },
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
         ),
         title: const Text('AboutUs'),
       ),
@@ -28,7 +28,8 @@ class _AboutUsState extends State<AboutUs> {
             height: 225,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/aboutus.jpg'), fit: BoxFit.fill),
+                  image: AssetImage('assets/images/aboutus.jpg'),
+                  fit: BoxFit.fill),
             ),
           ),
           const ListTile(
@@ -40,14 +41,14 @@ class _AboutUsState extends State<AboutUs> {
           ),
           const ListTile(
             title: Text(
-              'Welcome to the world of Vip Number Store',
+              'Welcome to Flutter App',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 23),
             ),
           ),
           const ListTile(
             title: Text(
-              'VIP NUMBER STORE was established in 2012 and still running with full efficiency and dedication. It is a one-stop destination for all mobile number solution.',
+              'Feel The power of app creation',
               textAlign: TextAlign.start,
             ),
           ),
@@ -61,11 +62,7 @@ class _AboutUsState extends State<AboutUs> {
               ),
               height: 120,
               width: 350,
-              child:
-                  // ListTile(
-                  //   title: Center(
-                  //       child:
-                  ListTile(
+              child: ListTile(
                 title: LottieBuilder.asset(
                   'assets/lottie/number.json',
                   width: 350,
@@ -91,12 +88,12 @@ class _AboutUsState extends State<AboutUs> {
                 'Our aim is to provide high quality services to everyone in India as we have earned our reputation because of our customers. They surely deserve best quality services and this is something which we had always believed in.'),
           ),
           const ListTile(
-            title: Text('WHY CHOOSE VIP NUMBER STORE',
+            title: Text('WHY CHOOSE US',
                 textAlign: TextAlign.start, style: TextStyle(fontSize: 25)),
           ),
           const ListTile(
             title: Text(
-                "We are India's Largest VIP Mobile Numbers Provider at challenging prices that give our customers a huge amount of choices to choose their VIP Number According to their personal and business that helps in their growth.Now you can book your choice Number Easily Online with VipNumberStore"),
+                "We are India's Largest App Provider at challenging prices that give our customers a huge amount of choices to choose their App According to their personal and business that helps in their growth.Now you can book  Easily Online with flutter app"),
           )
         ])
       ]),

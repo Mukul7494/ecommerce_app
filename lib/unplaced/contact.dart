@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Contact extends StatefulWidget {
-  const Contact({super.key});
+class ContactView extends StatefulWidget {
+  const ContactView({super.key});
 
   @override
-  State<Contact> createState() => _ContactState();
+  State<ContactView> createState() => _ContactViewState();
 }
 
-class _ContactState extends State<Contact> {
+class _ContactViewState extends State<ContactView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            context.go('/DashBoard');
+            context.go('/');
           },
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
         ),
         title: const Text('Contact Us'),
       ),
@@ -29,7 +29,7 @@ class _ContactState extends State<Contact> {
               height: 225,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/contactus.jpg'),
+                    image: AssetImage('assets/images/contactus.jpg'),
                     fit: BoxFit.fill),
               ),
             ),
@@ -78,7 +78,7 @@ class _ContactState extends State<Contact> {
                 child: TextButton(
                   onPressed: () {},
                   child: const Text(
-                    'support@vipstore.com',
+                    'support@mohit.dev',
                   ),
                 ),
                 alignment: const Alignment(-1.2, 0),
@@ -129,7 +129,7 @@ class _ContactState extends State<Contact> {
                   child: TextButton(
                     onPressed: () {},
                     child: const Text(
-                      'support@vipstore.com',
+                      'support@mohit.com',
                     ),
                   ),
                   alignment: const Alignment(-1.2, 0),
@@ -141,7 +141,7 @@ class _ContactState extends State<Contact> {
                   child: TextButton(
                     onPressed: () {},
                     child: const Text(
-                      'sales`@vipstore.com',
+                      'sales`@mohit.com',
                     ),
                   ),
                   alignment: const Alignment(-1.2, 0),

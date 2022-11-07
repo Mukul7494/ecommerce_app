@@ -1,4 +1,7 @@
 import 'package:ecomerce_app/core/modules/profile/prefrences/user_prefrences.dart';
+import 'package:ecomerce_app/unplaced/Aboutus.dart';
+import 'package:ecomerce_app/unplaced/contact.dart';
+import 'package:ecomerce_app/unplaced/notification.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,14 +28,11 @@ final routerProvider = Provider<GoRouter>((ref) {
       errorBuilder: (context, state) => const PageNotFound(),
       urlPathStrategy: UrlPathStrategy.path,
       // redirect: (context, state) {},
+      refreshListenable: RouterNotifier(ref),
       routes: [
         GoRoute(
           path: '/',
           redirect: (_) => '/dashboard/${dashBoardTabs[0]}',
-        ),
-        GoRoute(
-          path: '/back',
-          redirect: (_) => '/dashboard/${dashBoardTabs[3]}',
         ),
         GoRoute(
           path: '/dashboard/:id',
@@ -44,10 +44,39 @@ final routerProvider = Provider<GoRouter>((ref) {
           },
         ),
         GoRoute(
-          path: '/theme',
+          path: '/settings',
           pageBuilder: (context, state) {
             return const MaterialPage(child: UserPrefrences());
           },
         ),
+        GoRoute(
+          path: '/notification',
+          pageBuilder: (context, state) {
+            return const MaterialPage(child: NotificationView());
+          },
+        ),
+        GoRoute(
+          path: '/aboutus',
+          pageBuilder: (context, state) {
+            return const MaterialPage(child: AboutUs());
+          },
+        ),
+        GoRoute(
+          path: '/contactus',
+          pageBuilder: (context, state) {
+            return const MaterialPage(child: ContactView());
+          },
+        ),
       ]);
 });
+
+class RouterNotifier extends ChangeNotifier {
+  final Ref _ref;
+
+  RouterNotifier(this._ref) {
+    // _ref.listen<User?>(
+    //   userProvider,
+    //   (_, __) => notifyListeners(),
+    // );
+  }
+}

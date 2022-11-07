@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   # UI
+
   curved_navigation_bar: ^1.0.3
   google_nav_bar: ^5.0.6
   flutter_staggered_grid_view: ^0.6.2
@@ -52,6 +53,7 @@ dependencies:
   flutter_rating_bar: 4.0.0
   # liquid_ui: ^1.0.0
   shrink_sidemenu: ^2.0.0
+
   # form builder
   # form_builder_validators: ^8.3.0
 
@@ -67,10 +69,10 @@ dependencies:
   # Fonts
   google_fonts: ^3.0.1
   font_awesome_flutter: ^10.2.1
+  flutter_launcher_icons: ^0.9.3
 
   # Icons
   cupertino_icons: ^1.0.2
-  
   phosphor_flutter: ^1.4.0
   eva_icons_flutter: ^3.1.0
   typicons_flutter: ^0.5.0
@@ -89,7 +91,6 @@ dependencies:
   go_router: ^4.3.0
 
   # Storage
-
   shared_preferences: ^2.0.15
   rxdart: ^0.27.5
 
@@ -97,14 +98,17 @@ dependencies:
   # Network
   url_launcher: ^6.1.5
 
+  # Inversion of control
+  logger: ^1.1.0
+ 
   # Others
   flutter_hooks: ^0.18.5+1
   path_provider: ^2.0.11
   string_scanner: ^1.1.0
-  logger: ^1.1.0
   blurrycontainer: ^1.0.2
   sembast: 3.3.0
   sembast_web: 2.0.1+1
+  utils_widget: ^0.0.9+3
 
  
 dev_dependencies:
@@ -131,11 +135,16 @@ flutter:
 
 # Custom app icon. For more info see: https://pub.dev/packages/flutter_launcher_icons
 flutter_icons:
+  android: "launcher_icon"
   ios: true
-  android: true
-  remove_alpha_ios: true
-  image_path_ios: "assets/icons/foreground.png"
-  image_path_android: "assets/icons/foreground.png"
-  # https://github.com/fluttercommunity/flutter_launcher_icons/issues/144
-  adaptive_icon_background: "assets/icons/background.png"
-  adaptive_icon_foreground: "assets/icons/foreground.png"
+  adaptive_icon_background: "#ffffff"
+  image_path: "assets/icons/foreground.png"
+
+  # ios: true
+  # android: true
+  # remove_alpha_ios: true
+  # image_path_ios: "assets/icons/foreground.png"
+  # image_path_android: "assets/icons/foreground.png"
+  # # https://github.com/fluttercommunity/flutter_launcher_icons/issues/144
+  # adaptive_icon_background: "assets/icons/background.png"
+  # adaptive_icon_foreground: "assets/icons/foreground.png"

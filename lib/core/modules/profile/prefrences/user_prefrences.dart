@@ -24,7 +24,7 @@ class UserPrefrences extends StatelessWidget {
             icon: const Icon(Icons.arrow_back_ios_new),
           ),
           title: const Text(
-            "Customize App",
+            "Settings",
           )),
       body: Column(
         children: [
@@ -69,6 +69,30 @@ class UserPrefrences extends StatelessWidget {
                           }
                         },
                       ),
+                    ),
+                  ),
+                  Container(
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    height: MediaQuery.of(context).size.height / 14,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    child: TextButton.icon(
+                      style: TextButton.styleFrom(
+                          foregroundColor: Color.fromARGB(255, 0, 2, 10)),
+                      onPressed: () {
+                        context.push("/");
+                      },
+                      label: const Text(
+                        'Log out',
+                        style: TextStyle(
+                            fontSize: 23, fontWeight: FontWeight.bold),
+                      ),
+                      icon: const Icon(Icons.logout),
                     ),
                   ),
                 ],
