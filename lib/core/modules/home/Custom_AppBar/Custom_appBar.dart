@@ -17,7 +17,6 @@ class CustomAppBar extends ConsumerWidget with PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final GlobalKey<SideMenuState> _sideMenuKey = GlobalKey<SideMenuState>();
     final user = ref.watch(authStateChangesProvider).value;
     // * This widget is responsive.
     // * On large screen sizes, it shows all the actions in the app bar.
@@ -32,11 +31,6 @@ class CustomAppBar extends ConsumerWidget with PreferredSizeWidget {
       actions: [
         const ShoppingCartIcon(),
         if (user != null) ...[
-          ActionTextButton(
-            key: MoreMenuButton.ordersKey,
-            text: 'Orders'.hardcoded,
-            onPressed: () => context.pushNamed(AppRoute.orders.name),
-          ),
           ActionIconButton(
             key: MoreMenuButton.accountKey,
             onPressed: () => context.pushNamed(AppRoute.account.name),

@@ -57,7 +57,7 @@ class EmailPasswordSignInState with EmailAndPasswordValidators {
 extension EmailPasswordSignInStateX on EmailPasswordSignInState {
   String get passwordLabelText {
     if (formType == EmailPasswordSignInFormType.register) {
-      return 'Password (8+ characters)'.hardcoded;
+      return 'New Password (8+ characters)'.hardcoded;
     } else {
       return 'Password'.hardcoded;
     }

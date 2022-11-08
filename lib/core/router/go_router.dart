@@ -64,86 +64,84 @@ final routerProvider = Provider<GoRouter>((ref) {
             selectedTab: state.params['id']!,
           );
         },
+      ),
+      // GoRoute(
+      //   path: 'cart',
+      //   name: AppRoute.cart.name,
+      //   pageBuilder: (context, state) => MaterialPage(
+      //     key: state.pageKey,
+      //     fullscreenDialog: true,
+      //     child: const CartView(),
+      //   ),
+      // ),
+      // GoRoute(
+      //   path: 'checkout',
+      //   name: AppRoute.checkout.name,
+      //   // pageBuilder: (context, state) => MaterialPage(
+      //   //   key: ValueKey(state.location),
+      //   //   fullscreenDialog: true,
+      //   //   child: const CheckoutScreen(),
+      //   // ),
+      // ),
+      // GoRoute(
+      //   path: 'orders',
+      //   name: AppRoute.orders.name,
+      //   pageBuilder: (context, state) => MaterialPage(
+      //     key: state.pageKey,
+      //     fullscreenDialog: true,
+      //     child: const OrdersView(),
+      //   ),
+      // ),
+      // GoRoute(
+      //   path: 'account',
+      //   name: AppRoute.account.name,
+      //   pageBuilder: (context, state) => MaterialPage(
+      //     key: state.pageKey,
+      //     fullscreenDialog: true,
+      //     child: const AccountView(),
+      //   ),
+      // ),
 
-        // GoRoute(
-        //   path: 'cart',
-        //   name: AppRoute.cart.name,
-        //   pageBuilder: (context, state) => MaterialPage(
-        //     key: state.pageKey,
-        //     fullscreenDialog: true,
-        //     child: const CartView(),
-        //   ),
-        // ),
-        // GoRoute(
-        //   path: 'checkout',
-        //   name: AppRoute.checkout.name,
-        //   // pageBuilder: (context, state) => MaterialPage(
-        //   //   key: ValueKey(state.location),
-        //   //   fullscreenDialog: true,
-        //   //   child: const CheckoutScreen(),
-        //   // ),
-        // ),
-        // GoRoute(
-        //   path: 'orders',
-        //   name: AppRoute.orders.name,
-        //   pageBuilder: (context, state) => MaterialPage(
-        //     key: state.pageKey,
-        //     fullscreenDialog: true,
-        //     child: const OrdersView(),
-        //   ),
-        // ),
-        // GoRoute(
-        //   path: 'account',
-        //   name: AppRoute.account.name,
-        //   pageBuilder: (context, state) => MaterialPage(
-        //     key: state.pageKey,
-        //     fullscreenDialog: true,
-        //     child: const AccountView(),
-        //   ),
-        // ),
-        routes: [
-          GoRoute(
-            path: '/signIn',
-            name: AppRoute.signIn.name,
-            pageBuilder: (context, state) => MaterialPage(
-              key: state.pageKey,
-              fullscreenDialog: true,
-              child: const EmailPasswordSignInScreen(
-                formType: EmailPasswordSignInFormType.signIn,
-              ),
-            ),
+      GoRoute(
+        path: '/signIn',
+        name: AppRoute.signIn.name,
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          fullscreenDialog: true,
+          child: const EmailPasswordSignInScreen(
+            formType: EmailPasswordSignInFormType.signIn,
           ),
-          GoRoute(
-            path: '/settings',
-            pageBuilder: (context, state) {
-              return const MaterialPage(child: UserPrefrences());
-            },
-          ),
-          GoRoute(
-            path: '/notification',
-            pageBuilder: (context, state) {
-              return const MaterialPage(child: NotificationView());
-            },
-          ),
-          GoRoute(
-            path: '/aboutus',
-            pageBuilder: (context, state) {
-              return const MaterialPage(child: AboutUs());
-            },
-          ),
-          GoRoute(
-            path: '/contactus',
-            pageBuilder: (context, state) {
-              return const MaterialPage(child: ContactView());
-            },
-          ),
-          GoRoute(
-            path: '/notice',
-            pageBuilder: (context, state) {
-              return const MaterialPage(child: WorkingProgress());
-            },
-          ),
-        ],
+        ),
+      ),
+      GoRoute(
+        path: '/settings',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: UserPrefrences());
+        },
+      ),
+      GoRoute(
+        path: '/notification',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: NotificationView());
+        },
+      ),
+      GoRoute(
+        path: '/aboutus',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: AboutUs());
+        },
+      ),
+      GoRoute(
+        path: '/contactus',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ContactView());
+        },
+      ),
+      GoRoute(
+        path: '/notice',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: WorkingProgress());
+        },
       ),
     ],
   );

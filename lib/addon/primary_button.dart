@@ -28,7 +28,7 @@ class PrimaryButton extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .headline6!
-                    .copyWith(color: Colors.white),
+                    .copyWith(color: Color.fromARGB(255, 95, 16, 199)),
               ),
       ),
     );

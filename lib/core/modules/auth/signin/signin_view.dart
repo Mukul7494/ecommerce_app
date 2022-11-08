@@ -5,13 +5,14 @@ import 'package:ecomerce_app/utils/replaced_range.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../../addon/custom_text_button.dart';
 import '../../../../addon/primary_button.dart';
 import '../../../../addon/responsive_scrollable_card.dart';
 import '../../../../theme/utils/app_sizes.dart';
 
-class EmailPasswordSignInScreen extends StatelessWidget {
+class EmailPasswordSignInScreen extends ConsumerWidget {
   const EmailPasswordSignInScreen({super.key, required this.formType});
   final EmailPasswordSignInFormType formType;
 
@@ -20,11 +21,35 @@ class EmailPasswordSignInScreen extends StatelessWidget {
   static const passwordKey = Key('password');
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    final styles = theme.textTheme;
     return Scaffold(
-      appBar: AppBar(title: Text('Sign In'.hardcoded)),
-      body: EmailPasswordSignInContents(
-        formType: formType,
+      appBar: AppBar(title: Text('Auth'.hardcoded)),
+      body: SingleChildScrollView(
+        child: Container(
+          margin: const EdgeInsets.only(top: 5),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/background_image.jpg"),
+                fit: BoxFit.cover),
+          ),
+          child: Column(
+            children: [
+              LottieBuilder.asset(
+                'assets/lottie/login.json',
+                repeat: false,
+              ),
+              Text('Sign In/Sign Up'.hardcoded,
+                  style: styles.headlineLarge!
+                      .copyWith(color: Colors.purpleAccent)),
+              EmailPasswordSignInContents(
+                formType: formType,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -133,7 +158,7 @@ class _EmailPasswordSignInContentsState
                 controller: _emailController,
                 decoration: InputDecoration(
                   labelText: 'Email'.hardcoded,
-                  hintText: 'test@test.com'.hardcoded,
+                  hintText: 'test@mohit.dev'.hardcoded,
                   enabled: !state.isLoading,
                 ),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -168,7 +193,7 @@ class _EmailPasswordSignInContentsState
                 keyboardAppearance: Brightness.light,
                 onEditingComplete: () => _passwordEditingComplete(state),
               ),
-              gapH8,
+              gapH20,
               PrimaryButton(
                 text: state.primaryButtonText,
                 isLoading: state.isLoading,
