@@ -16,9 +16,6 @@ class OrdersListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Your Orders'.hardcoded),
-      ),
       body: Consumer(builder: (context, ref, _) {
         final userOrdersValue = ref.watch(userOrdersProvider);
         return AsyncValueWidget<List<Order>>(

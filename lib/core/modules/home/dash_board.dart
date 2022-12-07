@@ -3,6 +3,7 @@ import 'package:ecomerce_app/core/modules/cart/cart_view.dart';
 import 'package:ecomerce_app/core/modules/home/home_view.dart';
 import 'package:ecomerce_app/core/modules/home/widget/build_menu.dart';
 import 'package:ecomerce_app/core/modules/orders/order_view.dart';
+import 'package:ecomerce_app/core/modules/orders/view.dart';
 import 'package:ecomerce_app/core/modules/profile/profile_view.dart';
 import 'package:ecomerce_app/unplaced/floatingReportbtn.dart';
 import 'package:ecomerce_app/utils/replaced_range.dart';
@@ -16,6 +17,7 @@ import 'package:shrink_sidemenu/shrink_sidemenu.dart';
 import '../../../addon/action_text_button.dart';
 import '../../router/go_router.dart';
 import '../auth/provider.dart';
+import '../cart/shopping_cart/view.dart';
 import 'Custom_AppBar/more_menu.dart';
 import 'Custom_AppBar/shopping_cart.dart';
 
@@ -64,7 +66,7 @@ class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
     return [
       HomeView(),
       OrdersView(),
-      CartView(),
+      ShoppingCartScreen(),
       ProfileView(),
     ];
   }
@@ -144,10 +146,10 @@ class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
                 ),
                 NavigationDestination(
                   selectedIcon: const Icon(
-                    EvaIcons.shoppingBagOutline,
+                    EvaIcons.shoppingCartOutline,
                   ),
                   icon: const Icon(
-                    EvaIcons.shoppingBag,
+                    EvaIcons.shoppingCart,
                   ),
                   label: dashBoardTabs[2].toCapitalized(),
                 ),
