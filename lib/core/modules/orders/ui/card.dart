@@ -1,3 +1,15 @@
+import 'package:ecomerce_app/core/modules/orders/ui/status_label.dart';
+import 'package:ecomerce_app/utils/replaced_range.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../../theme/utils/app_sizes.dart';
+import '../../../../utils/currency_view.dart';
+import '../../../../utils/date_provider.dart';
+import '../../cart/item.dart';
+import '../orders.dart';
+import 'list.dart';
+
 /// Shows all the details for a given order
 class OrderCard extends StatelessWidget {
   const OrderCard({super.key, required this.order});

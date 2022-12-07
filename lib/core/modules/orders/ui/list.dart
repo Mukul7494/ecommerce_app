@@ -1,3 +1,14 @@
+import 'package:ecomerce_app/utils/replaced_range.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../../addon/async_value_widget.dart';
+import '../../../../addon/custom_image.dart';
+import '../../../../theme/utils/app_sizes.dart';
+import '../../cart/item.dart';
+import '../../products/product_model.dart';
+import '../../products/product_provider.dart';
+
 /// Shows an individual order item, including price and quantity.
 class OrderItemListTile extends ConsumerWidget {
   const OrderItemListTile({super.key, required this.item});
