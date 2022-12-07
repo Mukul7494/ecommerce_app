@@ -97,6 +97,8 @@ dependencies:
 
   # Network
   url_launcher: ^6.1.5
+ 
+
 
   # Inversion of control
 

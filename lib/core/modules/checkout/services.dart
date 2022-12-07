@@ -1,3 +1,4 @@
+import 'package:ecomerce_app/core/modules/purchase/proivder.dart';
 import 'package:ecomerce_app/utils/replaced_range.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,6 +9,7 @@ import '../cart/cart_provider.dart';
 import '../orders/data_provider.dart';
 import '../orders/orders.dart';
 import '../products/product_provider.dart';
+import '../purchase/purchase.dart';
 
 /// A fake checkout service that doesn't process real payments.
 class FakeCheckoutService {

@@ -1,6 +1,16 @@
+import 'dart:math';
+
+import 'package:ecomerce_app/core/modules/cart/cart_provider.dart';
+import 'package:ecomerce_app/core/modules/cart/local/local_provider.dart';
+import 'package:ecomerce_app/core/modules/cart/mutable_cart.dart';
+import 'package:ecomerce_app/core/modules/products/product_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../utils/error_logger.dart';
 import '../auth/local_auth/app_user.dart';
+import '../auth/provider.dart';
+import 'cart.dart';
+import 'item.dart';
 
 class CartSyncService {
   CartSyncService(this.ref) {
