@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../unplaced/floatingright.dart';
+import '../products/products_list/products_grid.dart';
 import 'widget/text_widget.dart';
 
 class HomeView extends ConsumerWidget {
@@ -50,7 +51,7 @@ class HomeView extends ConsumerWidget {
               ),
             ),
             const PriceSort(),
-
+            ProductsGrid(),
             // LottieBuilder.asset(
             //   'assets/lottie/nodata.json',
             //   repeat: false,

@@ -4,7 +4,7 @@ import 'package:ecomerce_app/core/modules/products/product_model.dart';
 const DemoProducts = [
   Product(
     id: '1',
-    imageUrl: 'assets/products/bruschetta-plate.jpg',
+    imageUrl: 'assets/images/background.jpg',
     title: 'Bruschetta plate',
     description: 'Lorem ipsum',
     price: 15,
@@ -12,7 +12,7 @@ const DemoProducts = [
   ),
   Product(
     id: '2',
-    imageUrl: 'assets/products/mozzarella-plate.jpg',
+    imageUrl: 'assets/images/background.jpg',
     title: 'Mozzarella plate',
     description: 'Lorem ipsum',
     price: 13,
