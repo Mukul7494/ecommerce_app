@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../../addon/async_value_widget.dart';
 import '../../../../theme/utils/app_sizes.dart';
@@ -23,11 +24,26 @@ class ProductsGrid extends ConsumerWidget {
     return AsyncValueWidget<List<Product>>(
       value: productsListValue,
       data: (products) => products.isEmpty
-          ? Center(
-              child: Text(
-                'No products found'.hardcoded,
-                style: Theme.of(context).textTheme.headline4,
-              ),
+          ? Column(
+              children: [
+                LottieBuilder.asset(
+                  'assets/lottie/nodata.json',
+                  repeat: false,
+                  fit: BoxFit.contain,
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height * 0.3,
+                ),
+                gapH4,
+                const Text(
+                  'No Product available',
+                  textScaleFactor: 1.5,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
             )
           : ProductsLayoutGrid(
               itemCount: products.length,

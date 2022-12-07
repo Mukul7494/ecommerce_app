@@ -32,7 +32,7 @@ class CustomAppBar extends ConsumerWidget with PreferredSizeWidget {
         const ShoppingCartIcon(),
         if (user != null) ...[
           ActionIconButton(
-            key: MoreMenuButton.accountKey,
+            // key: MoreMenuButton.accountKey,
             onPressed: () => context.pushNamed(AppRoute.account.name),
           ),
         ] else

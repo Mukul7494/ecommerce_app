@@ -14,6 +14,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../modules/auth/signin/signin_state.dart';
+import '../modules/cart/shopping_cart/view.dart';
+import '../modules/checkout/checkount_view.dart';
+import '../modules/home/Custom_AppBar/shopping_cart.dart';
+import '../modules/orders/view.dart';
+import '../modules/products/product_screen/product_screen.dart';
+import '../modules/reviews/leave_review_screen.dart';
 import 'error_404.dart';
 import '../modules/auth/provider.dart';
 import '../modules/home/dash_board.dart';
@@ -40,7 +46,7 @@ final routerProvider = Provider<GoRouter>((ref) {
           return '/';
         }
       } else {
-        if (state.location == '/account' || state.location == '/orders') {
+        if (state.location == '/orders') {
           return '/';
         }
       }
@@ -65,43 +71,54 @@ final routerProvider = Provider<GoRouter>((ref) {
           );
         },
       ),
-      // GoRoute(
-      //   path: 'cart',
-      //   name: AppRoute.cart.name,
-      //   pageBuilder: (context, state) => MaterialPage(
-      //     key: state.pageKey,
-      //     fullscreenDialog: true,
-      //     child: const CartView(),
-      //   ),
-      // ),
+      GoRoute(
+        path: '/product/:id',
+        name: AppRoute.product.name,
+        builder: (context, state) {
+          final productId = state.params['id']!;
+          return ProductScreen(productId: productId);
+        },
+      ),
+      GoRoute(
+        path: '/cart',
+        name: AppRoute.cart.name,
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          fullscreenDialog: true,
+          child: const ShoppingCartScreen(),
+        ),
+      ),
+      GoRoute(
+        path: '/orders',
+        name: AppRoute.orders.name,
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          fullscreenDialog: true,
+          child: const OrdersListScreen(),
+        ),
+      ),
       // GoRoute(
       //   path: 'checkout',
       //   name: AppRoute.checkout.name,
-      //   // pageBuilder: (context, state) => MaterialPage(
-      //   //   key: ValueKey(state.location),
-      //   //   fullscreenDialog: true,
-      //   //   child: const CheckoutScreen(),
-      //   // ),
-      // ),
-      // GoRoute(
-      //   path: 'orders',
-      //   name: AppRoute.orders.name,
       //   pageBuilder: (context, state) => MaterialPage(
+      //     // key: ValueKey(state.location),
       //     key: state.pageKey,
       //     fullscreenDialog: true,
-      //     child: const OrdersView(),
+      //     child: const CheckoutScreen(),
       //   ),
       // ),
-      // GoRoute(
-      //   path: 'account',
-      //   name: AppRoute.account.name,
-      //   pageBuilder: (context, state) => MaterialPage(
-      //     key: state.pageKey,
-      //     fullscreenDialog: true,
-      //     child: const AccountView(),
-      //   ),
-      // ),
-
+      GoRoute(
+        path: '/review',
+        name: AppRoute.leaveReview.name,
+        pageBuilder: (context, state) {
+          final productId = state.params['id']!;
+          return MaterialPage(
+            key: state.pageKey,
+            fullscreenDialog: true,
+            child: LeaveReviewScreen(productId: productId),
+          );
+        },
+      ),
       GoRoute(
         path: '/signIn',
         name: AppRoute.signIn.name,

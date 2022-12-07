@@ -8,7 +8,7 @@ import '../../auth/local_auth/app_user.dart';
 enum PopupMenuOption {
   signIn,
   orders,
-  account,
+  // account,
 }
 
 class MoreMenuButton extends StatelessWidget {
@@ -18,7 +18,7 @@ class MoreMenuButton extends StatelessWidget {
   // * Keys for testing using find.byKey()
   static const signInKey = Key('menuSignIn');
   static const ordersKey = Key('menuOrders');
-  static const accountKey = Key('menuAccount');
+  // static const accountKey = Key('menuAccount');
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,11 @@ class MoreMenuButton extends StatelessWidget {
                   value: PopupMenuOption.orders,
                   child: Text('Orders'.hardcoded),
                 ),
-                PopupMenuItem(
-                  key: accountKey,
-                  value: PopupMenuOption.account,
-                  child: Text('Account'.hardcoded),
-                ),
+                // PopupMenuItem(
+                //   key: accountKey,
+                //   value: PopupMenuOption.account,
+                //   child: Text('Account'.hardcoded),
+                // ),
               ]
             : <PopupMenuEntry<PopupMenuOption>>[
                 PopupMenuItem(
@@ -57,9 +57,9 @@ class MoreMenuButton extends StatelessWidget {
           case PopupMenuOption.orders:
             context.pushNamed(AppRoute.orders.name);
             break;
-          case PopupMenuOption.account:
-            context.pushNamed(AppRoute.account.name);
-            break;
+          // case PopupMenuOption.account:
+          //   context.pushNamed(AppRoute.account.name);
+          //   break;
         }
       },
     );

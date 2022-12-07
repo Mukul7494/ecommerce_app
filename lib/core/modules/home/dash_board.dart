@@ -105,10 +105,10 @@ class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
                     text: 'Orders'.hardcoded,
                     onPressed: () => context.pushNamed(AppRoute.orders.name),
                   ),
-                  ActionIconButton(
-                    key: MoreMenuButton.accountKey,
-                    onPressed: () => context.pushNamed(AppRoute.account.name),
-                  ),
+                  // ActionIconButton(
+                  //   key: MoreMenuButton.accountKey,
+                  //   onPressed: () => context.pushNamed(AppRoute.account.name),
+                  // ),
                 ] else
                   ActionTextButton(
                     key: MoreMenuButton.signInKey,
@@ -191,6 +191,6 @@ class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
 List<String> dashBoardTabs = [
   'home',
   'offers',
-  'orders',
+  'cart',
   'profile',
 ];

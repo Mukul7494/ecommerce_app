@@ -28,7 +28,7 @@ class MyApp extends ConsumerWidget {
             restorationScopeId: 'app',
 
             themeMode: controller.themeMode,
-            onGenerateTitle: (BuildContext context) => 'Flutter Shop'.hardcoded,
+            onGenerateTitle: (BuildContext context) => 'ShopWithMore'.hardcoded,
             scrollBehavior: const AppScrollBehavior(),
             theme: controller.useFlexColorScheme
                 ? flexThemeLight(controller)

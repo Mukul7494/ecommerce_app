@@ -93,7 +93,7 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
               Container(
                 margin: const EdgeInsets.only(left: 15, right: 15),
                 padding: const EdgeInsets.only(left: 20),
-                height: MediaQuery.of(context).size.height / 12,
+                height: MediaQuery.of(context).size.height / 4,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -126,30 +126,20 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
                         ),
                       ],
                     ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(left: 15, right: 15, top: 20),
-                padding: const EdgeInsets.only(left: 20, top: 10),
-                height: MediaQuery.of(context).size.height / 6,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Theme.of(context).cardColor,
-                ),
-                child: Column(
-                  children: [
+                    const SizedBox(
+                      height: 15,
+                    ),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(30),
                           child: Container(
                             height: 27,
                             width: 27,
-                            color: Colors.green[900],
+                            color: Colors.blue[800],
                             child: const Icon(
-                              EvaIcons.activity,
+                              EvaIcons.heart,
                               color: Colors.white,
                               size: 16,
                             ),
@@ -159,28 +149,119 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
                           width: 10,
                         ),
                         const Text(
-                          "Order History",
+                          "20",
                         ),
-                        Expanded(
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(30),
                           child: Container(
-                            padding: const EdgeInsets.only(right: 10),
-                            alignment: Alignment.centerRight,
-                            child: SizedBox(
-                              height: 40,
-                              child: TextButton(
-                                onPressed: () {
-                                  context.push("/sold");
-                                },
-                                child: const Text('View all'),
-                              ),
+                            height: 27,
+                            width: 27,
+                            color: Colors.blue[800],
+                            child: const Icon(
+                              Icons.phone,
+                              color: Colors.white,
+                              size: 16,
                             ),
                           ),
-                        )
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Text(
+                          "+919991119999",
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(30),
+                          child: Container(
+                            height: 27,
+                            width: 27,
+                            color: Colors.blue[800],
+                            child: const Icon(
+                              Icons.apartment,
+                              color: Colors.white,
+                              size: 16,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Text(
+                          "unknown",
+                        ),
                       ],
                     ),
                   ],
                 ),
               ),
+              // Container(
+              //   margin: const EdgeInsets.only(left: 15, right: 15, top: 20),
+              //   padding: const EdgeInsets.only(left: 20, top: 10),
+              //   height: MediaQuery.of(context).size.height / 6,
+              //   width: MediaQuery.of(context).size.width,
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(10),
+              //     color: Theme.of(context).cardColor,
+              //   ),
+              //   child: Column(
+              //     children: [
+              //       Row(
+              //         children: [
+              //           ClipRRect(
+              //             borderRadius: BorderRadius.circular(30),
+              //             child: Container(
+              //               height: 27,
+              //               width: 27,
+              //               color: Colors.green[900],
+              //               child: const Icon(
+              //                 EvaIcons.activity,
+              //                 color: Colors.white,
+              //                 size: 16,
+              //               ),
+              //             ),
+              //           ),
+              //           const SizedBox(
+              //             width: 10,
+              //           ),
+              //           const Text(
+              //             "Order History",
+              //           ),
+              //           Expanded(
+              //             child: Container(
+              //               padding: const EdgeInsets.only(right: 10),
+              //               alignment: Alignment.centerRight,
+              //               child: SizedBox(
+              //                 height: 40,
+              //                 child: TextButton(
+              //                   onPressed: () {
+              //                     context.push("/");
+              //                   },
+              //                   child: const Text('View all'),
+              //                 ),
+              //               ),
+              //             ),
+              //           )
+              //         ],
+              //       ),
+              //     ],
+              //   ),
+              // ),
               gapH8,
               CustomContainer(
                 margin: const EdgeInsets.symmetric(

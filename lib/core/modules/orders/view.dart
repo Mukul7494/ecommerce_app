@@ -16,6 +16,9 @@ class OrdersListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Your Orders'.hardcoded),
+      ),
       body: Consumer(builder: (context, ref, _) {
         final userOrdersValue = ref.watch(userOrdersProvider);
         return AsyncValueWidget<List<Order>>(
@@ -41,7 +44,8 @@ class OrdersListScreen extends StatelessWidget {
                     ),
                     gapH8,
                     ElevatedButton(
-                        child: const Text('Home'), onPressed: () => ''),
+                        child: const Text('Start Shopping Now'),
+                        onPressed: () => '/'),
                   ],
                 )
               : CustomScrollView(
