@@ -1,13 +1,16 @@
+import 'package:ecomerce_app/core/modules/auth/provider.dart';
 import 'package:ecomerce_app/theme/utils/app_sizes.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class BuildMenu extends StatelessWidget {
+class BuildMenu extends ConsumerWidget {
   const BuildMenu({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(authStateChangesProvider).value;
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -17,7 +20,7 @@ class BuildMenu extends StatelessWidget {
             padding: const EdgeInsets.only(left: 16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 CircleAvatar(
                   backgroundColor: Colors.white,
                   backgroundImage: AssetImage('assets/images/person.jpg'),
@@ -25,8 +28,7 @@ class BuildMenu extends StatelessWidget {
                 ),
                 gapH16,
                 Text(
-                  "MOHIT,\nmohit@dev.in",
-                  style: TextStyle(color: Colors.white),
+                  user?.email ?? 'Sign Please',
                 ),
                 gapH20,
               ],
