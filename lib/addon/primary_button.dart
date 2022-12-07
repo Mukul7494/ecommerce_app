@@ -19,6 +19,8 @@ class PrimaryButton extends StatelessWidget {
     return SizedBox(
       height: Sizes.p48,
       child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            backgroundColor: Theme.of(context).primaryColor),
         onPressed: onPressed,
         child: isLoading
             ? const CircularProgressIndicator()
@@ -28,7 +30,7 @@ class PrimaryButton extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .headline6!
-                    .copyWith(color: Color.fromARGB(255, 95, 16, 199)),
+                    .copyWith(color: Colors.white),
               ),
       ),
     );

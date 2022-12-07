@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../theme/utils/app_sizes.dart';
 import '../../../router/go_router.dart';
+import '../../cart/cart_services.dart';
 
 /// Shopping cart icon with items count badge
 class ShoppingCartIcon extends ConsumerWidget {
@@ -15,25 +16,25 @@ class ShoppingCartIcon extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final cartItemsCount = ref.watch(cartItemsCountProvider);
+    final cartItemsCount = ref.watch(cartItemsCountProvider);
     return Stack(
       children: [
         Center(
           child: IconButton(
             key: shoppingCartIconKey,
             icon: const Icon(
-              Icons.shopping_cart_outlined,
-              color: Color.fromARGB(248, 249, 252, 249),
+              Icons.shopping_cart,
+              color: Colors.white,
             ),
             onPressed: () => context.pushNamed(AppRoute.cart.name),
           ),
         ),
-        // if (cartItemsCount > 0)
-        //   Positioned(
-        //     top: Sizes.p4,
-        //     right: Sizes.p4,
-        //     child: ShoppingCartIconBadge(itemsCount: cartItemsCount),
-        //   ),
+        if (cartItemsCount > 0)
+          Positioned(
+            top: Sizes.p4,
+            right: Sizes.p4,
+            child: ShoppingCartIconBadge(itemsCount: cartItemsCount),
+          ),
       ],
     );
   }
@@ -64,7 +65,7 @@ class ShoppingCartIconBadge extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .caption!
-              .copyWith(color: Color.fromARGB(255, 255, 255, 255)),
+              .copyWith(color: Colors.white),
         ),
       ),
     );

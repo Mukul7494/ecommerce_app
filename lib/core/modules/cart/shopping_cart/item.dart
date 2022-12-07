@@ -4,6 +4,7 @@ import 'package:ecomerce_app/utils/replaced_range.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../addon/alert_dialogs.dart';
 import '../../../../addon/async_value_widget.dart';
 import '../../../../addon/custom_image.dart';
 import '../../../../addon/item_quantity_selector.dart';
@@ -76,15 +77,16 @@ class ShoppingCartItemContents extends ConsumerWidget {
     final priceFormatted =
         ref.watch(currencyFormatterProvider).format(product.price);
     return ResponsiveTwoColumnLayout(
-      startFlex: 1,
-      endFlex: 2,
-      breakpoint: 320,
+      startFlex: 2,
+      endFlex: 6,
+      breakpoint: 300,
       startContent: CustomImage(imageUrl: product.imageUrl),
       spacing: Sizes.p24,
+      midContent: const SizedBox(),
       endContent: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(product.title, style: Theme.of(context).textTheme.headline5),
+          Text(product.title, style: Theme.of(context).textTheme.headline6),
           gapH24,
           Text(priceFormatted, style: Theme.of(context).textTheme.headline5),
           gapH24,
@@ -144,9 +146,19 @@ class EditOrRemoveItemWidget extends ConsumerWidget {
           icon: Icon(Icons.delete, color: Colors.red[700]),
           onPressed: state.isLoading
               ? null
-              : () => ref
-                  .read(shoppingCartScreenControllerProvider.notifier)
-                  .removeItemById(item.productId),
+              : () async {
+                  final del = await showAlertDialog(
+                    context: context,
+                    title: 'Are you sure?'.hardcoded,
+                    cancelActionText: 'Keep'.hardcoded,
+                    defaultActionText: 'Remove'.hardcoded,
+                  );
+                  if (del == true) {
+                    ref
+                        .read(shoppingCartScreenControllerProvider.notifier)
+                        .removeItemById(item.productId);
+                  }
+                },
         ),
         const Spacer(),
       ],

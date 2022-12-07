@@ -11,9 +11,12 @@ import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:utils_widget/utils_widget.dart';
 
+import '../../../addon/action_text_button.dart';
+import '../../../addon/alert_dialogs.dart';
 import '../../../theme/shared/controllers/theme_controller.dart';
 import '../../../theme/utils/app_sizes.dart';
 import '../../router/go_router.dart';
+import '../auth/account/account_controller.dart';
 
 class ProfileView extends ConsumerStatefulWidget {
   const ProfileView({super.key});
@@ -23,10 +26,40 @@ class ProfileView extends ConsumerStatefulWidget {
 
 class _ProfileViewState extends ConsumerState<ProfileView> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
+    ref.listen<AsyncValue>(
+      accountControllerProvider,
+      (_, state) => state.showAlertDialogOnError(context),
+    );
+    final state = ref.watch(accountControllerProvider);
     final user = ref.watch(authStateChangesProvider).value;
     if (user != null) {
       return Scaffold(
+        appBar: AppBar(
+          title: state.isLoading
+              ? const CircularProgressIndicator()
+              : Text('Account'.hardcoded),
+          actions: [
+            ActionTextButton(
+              text: 'Logout'.hardcoded,
+              onPressed: state.isLoading
+                  ? null
+                  : () async {
+                      final logout = await showAlertDialog(
+                        context: context,
+                        title: 'Are you sure?'.hardcoded,
+                        cancelActionText: 'Cancel'.hardcoded,
+                        defaultActionText: 'Logout'.hardcoded,
+                      );
+                      if (logout == true) {
+                        ref.read(accountControllerProvider.notifier).signOut();
+                      }
+                    },
+            ),
+          ],
+        ),
         body: SafeArea(
           child: ListView(
             physics: const ClampingScrollPhysics(),
@@ -293,7 +326,7 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
                     settingOptionPattern(
                       Icons.help,
                       'Help Center',
-                      () => context.push("/help"),
+                      () => context.push("/contactus"),
                     ),
                     // controller.divider,
                     settingOptionPattern(
@@ -312,6 +345,7 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
       );
     } else {
       return Scaffold(
+        appBar: AppBar(title: Text('Account'.hardcoded)),
         body: Column(
           children: [
             LottieBuilder.asset(
@@ -332,11 +366,14 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
             ),
             gapH8,
             ElevatedButton(
-                child: const Text('Login/SignUp'), onPressed: () => ''),
+              child: const Text('Login/SignUp'),
+              onPressed: () => context.go('/signIn'),
+            ),
             gapH8,
             ElevatedButton(
-                child: const Text('Settings'),
-                onPressed: () => context.go('/theme')),
+              child: const Text('Settings'),
+              onPressed: () => context.go('/theme'),
+            ),
           ],
         ),
       );

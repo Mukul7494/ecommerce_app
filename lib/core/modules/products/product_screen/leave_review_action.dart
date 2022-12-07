@@ -56,12 +56,13 @@ class LeaveReviewAction extends ConsumerWidget {
                 );
               },
             ),
+            midContent: Container(),
           ),
           gapH8,
         ],
       );
     } else {
-      return const SizedBox();
+      return Text("data");
     }
   }
 }

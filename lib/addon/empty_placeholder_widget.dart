@@ -22,7 +22,7 @@ class EmptyPlaceholderWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             LottieBuilder.asset(
-              'assets/lottie/emptycart.json',
+              'assets/lottie/emptybox.json',
               repeat: false,
               fit: BoxFit.contain,
               width: double.infinity,

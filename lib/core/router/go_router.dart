@@ -13,6 +13,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../unplaced/privacy.dart';
 import '../modules/auth/signin/signin_state.dart';
 import '../modules/cart/shopping_cart/view.dart';
 import '../modules/checkout/checkount_view.dart';
@@ -97,16 +98,16 @@ final routerProvider = Provider<GoRouter>((ref) {
           child: const OrdersListScreen(),
         ),
       ),
-      // GoRoute(
-      //   path: 'checkout',
-      //   name: AppRoute.checkout.name,
-      //   pageBuilder: (context, state) => MaterialPage(
-      //     // key: ValueKey(state.location),
-      //     key: state.pageKey,
-      //     fullscreenDialog: true,
-      //     child: const CheckoutScreen(),
-      //   ),
-      // ),
+      GoRoute(
+        path: '/checkout',
+        name: AppRoute.checkout.name,
+        pageBuilder: (context, state) => MaterialPage(
+          key: ValueKey(state.location),
+          // key: state.pageKey,
+          fullscreenDialog: true,
+          child: const CheckoutScreen(),
+        ),
+      ),
       GoRoute(
         path: '/review',
         name: AppRoute.leaveReview.name,
@@ -152,6 +153,12 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/contactus',
         pageBuilder: (context, state) {
           return const MaterialPage(child: ContactView());
+        },
+      ),
+      GoRoute(
+        path: '/privacy',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: Privacy());
         },
       ),
       GoRoute(

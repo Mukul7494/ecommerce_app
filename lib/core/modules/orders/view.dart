@@ -4,6 +4,7 @@ import 'package:ecomerce_app/core/modules/orders/ui/card.dart';
 import 'package:ecomerce_app/utils/replaced_range.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import '../../../addon/async_value_widget.dart';
 import '../../../theme/utils/app_sizes.dart';
@@ -17,6 +18,15 @@ class OrdersListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            context.go('/');
+          },
+          icon: const Icon(
+            Icons.close,
+            color: Colors.white,
+          ),
+        ),
         title: Text('Your Orders'.hardcoded),
       ),
       body: Consumer(builder: (context, ref, _) {

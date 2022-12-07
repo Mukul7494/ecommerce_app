@@ -18,6 +18,7 @@ import '../../../addon/action_text_button.dart';
 import '../../router/go_router.dart';
 import '../auth/provider.dart';
 import '../cart/shopping_cart/view.dart';
+import '../offers/offers.dart';
 import 'Custom_AppBar/more_menu.dart';
 import 'Custom_AppBar/shopping_cart.dart';
 
@@ -38,7 +39,6 @@ class DashBoard extends StatefulWidget {
 
 class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
   late final TabController _controller;
-  final GlobalKey<SideMenuState> _sideMenuKey = GlobalKey<SideMenuState>();
 
   @override
   void initState() {
@@ -65,7 +65,7 @@ class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
   List<Widget> _buildScreens() {
     return [
       HomeView(),
-      OrdersView(),
+      OfferView(),
       ShoppingCartScreen(),
       ProfileView(),
     ];
@@ -73,118 +73,70 @@ class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(
-      builder: (BuildContext context, WidgetRef ref, Widget? child) {
-        final user = ref.watch(authStateChangesProvider).value;
-        return SideMenu(
-          key: _sideMenuKey,
-          menu: const BuildMenu(),
-          type: SideMenuType.shrinkNSlide,
-          child: Scaffold(
-            appBar: AppBar(
-              centerTitle: false,
-              leading: IconButton(
-                icon: const Icon(
-                  Icons.menu_rounded,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  final state = _sideMenuKey.currentState;
-                  if (state!.isOpened) {
-                    state.closeSideMenu();
-                  } else {
-                    state.openSideMenu();
-                  }
-                },
-              ),
-              title: Text('My Shop'.hardcoded),
-              actions: [
-                if (user != null) ...[
-                  ActionTextButton(
-                    key: MoreMenuButton.ordersKey,
-                    text: 'Orders'.hardcoded,
-                    onPressed: () => context.pushNamed(AppRoute.orders.name),
-                  ),
-                  // ActionIconButton(
-                  //   key: MoreMenuButton.accountKey,
-                  //   onPressed: () => context.pushNamed(AppRoute.account.name),
-                  // ),
-                ] else
-                  ActionTextButton(
-                    key: MoreMenuButton.signInKey,
-                    text: 'Sign In'.hardcoded,
-                    onPressed: () => context.pushNamed(AppRoute.signIn.name),
-                  ),
-                const ShoppingCartIcon(),
-              ],
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: const FloatinReportBtn(),
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _controller.index,
+        onDestinationSelected: (index) =>
+            context.go('/dashboard/${dashBoardTabs[index]}'),
+        destinations: [
+          NavigationDestination(
+            selectedIcon: const Icon(
+              EvaIcons.homeOutline,
             ),
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerFloat,
-            floatingActionButton: const FloatinReportBtn(),
-            bottomNavigationBar: NavigationBar(
-              selectedIndex: _controller.index,
-              onDestinationSelected: (index) =>
-                  context.go('/dashboard/${dashBoardTabs[index]}'),
-              destinations: [
-                NavigationDestination(
-                  selectedIcon: const Icon(
-                    EvaIcons.homeOutline,
-                  ),
-                  icon: const Icon(
-                    EvaIcons.home,
-                  ),
-                  label: dashBoardTabs[0].toCapitalized(),
-                ),
-                NavigationDestination(
-                  selectedIcon: const Icon(
-                    EvaIcons.percentOutline,
-                  ),
-                  icon: const Icon(
-                    EvaIcons.percent,
-                  ),
-                  label: dashBoardTabs[1].toCapitalized(),
-                ),
-                NavigationDestination(
-                  selectedIcon: const Icon(
-                    EvaIcons.shoppingCartOutline,
-                  ),
-                  icon: const Icon(
-                    EvaIcons.shoppingCart,
-                  ),
-                  label: dashBoardTabs[2].toCapitalized(),
-                ),
-                NavigationDestination(
-                  selectedIcon: const Icon(
-                    EvaIcons.personOutline,
-                  ),
-                  icon: const Icon(
-                    EvaIcons.person,
-                  ),
-                  label: dashBoardTabs[3].toCapitalized(),
-                ),
-              ],
+            icon: const Icon(
+              EvaIcons.home,
             ),
-            body: TabBarView(
-              controller: _controller,
-              physics: const NeverScrollableScrollPhysics(),
-              children: _buildScreens(),
-            ),
+            label: dashBoardTabs[0].toCapitalized(),
           ),
-          // error: (error, stack) => Material(
-          //   child: Center(
-          //     child: Text(
-          //       error.toString(),
-          //     ),
-          //   ),
-          // ),
-          // loading: () => const Material(
-          //   child: Center(
-          //     child: CircularProgressIndicator(),
-          //   ),
-          // ),
-        );
-      },
+          NavigationDestination(
+            selectedIcon: const Icon(
+              EvaIcons.percentOutline,
+            ),
+            icon: const Icon(
+              EvaIcons.percent,
+            ),
+            label: dashBoardTabs[1].toCapitalized(),
+          ),
+          NavigationDestination(
+            selectedIcon: const Icon(
+              EvaIcons.shoppingCartOutline,
+            ),
+            icon: const Icon(
+              EvaIcons.shoppingCart,
+            ),
+            label: dashBoardTabs[2].toCapitalized(),
+          ),
+          NavigationDestination(
+            selectedIcon: const Icon(
+              EvaIcons.personOutline,
+            ),
+            icon: const Icon(
+              EvaIcons.person,
+            ),
+            label: dashBoardTabs[3].toCapitalized(),
+          ),
+        ],
+      ),
+      body: TabBarView(
+        controller: _controller,
+        physics: const NeverScrollableScrollPhysics(),
+        children: _buildScreens(),
+      ),
     );
+    // error: (error, stack) => Material(
+    //   child: Center(
+    //     child: Text(
+    //       error.toString(),
+    //     ),
+    //   ),
+    // ),
+    // loading: () => const Material(
+    //   child: Center(
+    //     child: CircularProgressIndicator(),
+    //   ),
+    // ),
   }
 }
 

@@ -1,7 +1,6 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:utils_widget/utils_widget.dart';
+
 class CopyRights extends StatelessWidget {
   const CopyRights({Key? key}) : super(key: key);
 
@@ -30,7 +29,7 @@ class CopyRights extends StatelessWidget {
           GestureDetector(
             onTap: () => LaunchUtils.launchUrl('https://www.google.com'),
             child: Text(
-              'Made by mohit',
+              'Made with ❤️ by Mohit, Ankit, Additya\nAce Ambala',
               style: TextStyle(
                 letterSpacing: 1,
                 wordSpacing: 1,

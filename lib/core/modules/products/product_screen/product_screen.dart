@@ -1,8 +1,10 @@
+import 'package:ecomerce_app/core/modules/home/Custom_AppBar/Custom_appBar.dart';
 import 'package:ecomerce_app/core/modules/products/product_screen/product_average_rating.dart';
 import 'package:ecomerce_app/utils/replaced_range.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../addon/async_value_widget.dart';
 import '../../../../addon/custom_image.dart';
@@ -25,7 +27,7 @@ class ProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: const HomeAppBar(),
+      appBar: const CustomAppBar(),
       body: Consumer(
         builder: (context, ref, _) {
           final productValue = ref.watch(productProvider(productId));
@@ -66,6 +68,23 @@ class ProductDetails extends ConsumerWidget {
       startContent: Card(
         child: Padding(
           padding: const EdgeInsets.all(Sizes.p16),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            Text(
+              product.title,
+              style: const TextStyle(
+                color: Colors.indigo,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                decoration: TextDecoration.underline,
+              ),
+            ),
+          ]),
+        ),
+      ),
+      midContent: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(Sizes.p16),
           child: CustomImage(imageUrl: product.imageUrl),
         ),
       ),
@@ -76,8 +95,16 @@ class ProductDetails extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(product.title, style: Theme.of(context).textTheme.headline6),
-              gapH8,
+              const Text(
+                "Description",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.indigo,
+                  fontSize: 25,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+              gapH16,
               Text(product.description),
               // Only show average if there is at least one rating
               if (product.numRatings >= 1) ...[
@@ -94,6 +121,8 @@ class ProductDetails extends ConsumerWidget {
               const Divider(),
               gapH8,
               AddToCartWidget(product: product),
+
+              gapH16,
             ],
           ),
         ),

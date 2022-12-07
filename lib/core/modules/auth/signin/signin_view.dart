@@ -1,3 +1,4 @@
+import 'package:ecomerce_app/core/modules/auth/shared_pref.dart';
 import 'package:ecomerce_app/core/modules/auth/signin/signin_controller.dart';
 import 'package:ecomerce_app/core/modules/auth/signin/signin_state.dart';
 import 'package:ecomerce_app/core/modules/auth/signin/string_validators.dart';
@@ -11,6 +12,7 @@ import '../../../../addon/custom_text_button.dart';
 import '../../../../addon/primary_button.dart';
 import '../../../../addon/responsive_scrollable_card.dart';
 import '../../../../theme/utils/app_sizes.dart';
+import '../../home/onboarding.dart';
 
 class EmailPasswordSignInScreen extends ConsumerWidget {
   const EmailPasswordSignInScreen({super.key, required this.formType});
@@ -89,6 +91,18 @@ class _EmailPasswordSignInContentsState
   // https://codewithandrea.com/articles/flutter-text-field-form-validation/
   var _submitted = false;
 
+  bool _showIntro = false;
+  void canShowIntro() async {
+    _showIntro = await SharedPrefs.getCanShowIntroScreen();
+  }
+
+  @override
+  void initState() {
+    canShowIntro();
+
+    super.initState();
+  }
+
   @override
   void dispose() {
     // * TextEditingControllers should be always disposed
@@ -158,7 +172,7 @@ class _EmailPasswordSignInContentsState
                 controller: _emailController,
                 decoration: InputDecoration(
                   labelText: 'Email'.hardcoded,
-                  hintText: 'test@mohit.dev'.hardcoded,
+                  hintText: 'eg: test@mohit.dev'.hardcoded,
                   enabled: !state.isLoading,
                 ),
                 autovalidateMode: AutovalidateMode.onUserInteraction,

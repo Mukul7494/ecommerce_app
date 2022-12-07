@@ -4,6 +4,7 @@ import 'package:ecomerce_app/core/modules/cart/add_to_cart/contoller.dart';
 import 'package:ecomerce_app/utils/replaced_range.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../addon/item_quantity_selector.dart';
 import '../../../../addon/primary_button.dart';
@@ -53,9 +54,22 @@ class AddToCartWidget extends ConsumerWidget {
           isLoading: state.isLoading,
           // only enable the button if there is enough stock
           onPressed: availableQuantity > 0
-              ? () => ref
-                  .read(addToCartControllerProvider.notifier)
-                  .addItem(product.id)
+              ? () {
+                  final snackBar = SnackBar(
+                    content: const Text('Added To Cart Succesfully'),
+                    duration: Duration(seconds: 2),
+                    action: SnackBarAction(
+                      label: 'Go To Cart',
+                      onPressed: () {
+                        context.go('/cart');
+                      },
+                    ),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  ref
+                      .read(addToCartControllerProvider.notifier)
+                      .addItem(product.id);
+                }
               : null,
           text: availableQuantity > 0
               ? 'Add to Cart'.hardcoded

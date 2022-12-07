@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-Widget buildCustomText() {
+Widget buildCustom1Text() {
   return const FancyTextReveal(
     child: Text(
       'Start Shopping Now',

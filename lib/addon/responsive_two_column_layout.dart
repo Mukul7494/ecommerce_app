@@ -8,8 +8,10 @@ class ResponsiveTwoColumnLayout extends StatelessWidget {
   const ResponsiveTwoColumnLayout({
     super.key,
     required this.startContent,
+    required this.midContent,
     required this.endContent,
     this.startFlex = 1,
+    this.midFlex = 1,
     this.endFlex = 1,
     this.breakpoint = Breakpoint.tablet,
     required this.spacing,
@@ -19,8 +21,10 @@ class ResponsiveTwoColumnLayout extends StatelessWidget {
     this.columnCrossAxisAlignment = CrossAxisAlignment.stretch,
   });
   final Widget startContent;
+  final Widget midContent;
   final Widget endContent;
   final int startFlex;
+  final int midFlex;
   final int endFlex;
   final double breakpoint;
   final double spacing;
@@ -39,6 +43,8 @@ class ResponsiveTwoColumnLayout extends StatelessWidget {
           children: [
             Flexible(flex: startFlex, child: startContent),
             SizedBox(width: spacing),
+            Flexible(flex: midFlex, child: midContent),
+            SizedBox(width: spacing),
             Flexible(flex: endFlex, child: endContent),
           ],
         );
@@ -48,6 +54,8 @@ class ResponsiveTwoColumnLayout extends StatelessWidget {
           crossAxisAlignment: columnCrossAxisAlignment,
           children: [
             startContent,
+            SizedBox(height: spacing),
+            midContent,
             SizedBox(height: spacing),
             endContent,
           ],
