@@ -48,23 +48,24 @@ class HomeView extends ConsumerWidget {
               ),
             ),
             const PriceSort(),
-            LottieBuilder.asset(
-              'assets/lottie/nodata.json',
-              repeat: false,
-              fit: BoxFit.contain,
-              width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.3,
-            ),
-            gapH4,
-            const Text(
-              'No Product available',
-              textScaleFactor: 1.5,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.grey,
-              ),
-            ),
+
+            // LottieBuilder.asset(
+            //   'assets/lottie/nodata.json',
+            //   repeat: false,
+            //   fit: BoxFit.contain,
+            //   width: double.infinity,
+            //   height: MediaQuery.of(context).size.height * 0.3,
+            // ),
+            // gapH4,
+            // const Text(
+            //   'No Product available',
+            //   textScaleFactor: 1.5,
+            //   textAlign: TextAlign.center,
+            //   style: TextStyle(
+            //     fontWeight: FontWeight.bold,
+            //     color: Colors.grey,
+            //   ),
+            // ),
           ],
         ),
       ),

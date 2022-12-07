@@ -21,7 +21,7 @@ class BuildMenu extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundColor: Colors.white,
                   backgroundImage: AssetImage('assets/images/person.jpg'),
                   radius: 22.0,
@@ -29,6 +29,7 @@ class BuildMenu extends ConsumerWidget {
                 gapH16,
                 Text(
                   user?.email ?? 'Sign Please',
+                  style: TextStyle(color: Colors.white),
                 ),
                 gapH20,
               ],
