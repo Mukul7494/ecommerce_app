@@ -135,19 +135,19 @@ class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
                 ),
                 NavigationDestination(
                   selectedIcon: const Icon(
-                    EvaIcons.shoppingBagOutline,
+                    EvaIcons.percentOutline,
                   ),
                   icon: const Icon(
-                    EvaIcons.shoppingBag,
+                    EvaIcons.percent,
                   ),
                   label: dashBoardTabs[1].toCapitalized(),
                 ),
                 NavigationDestination(
                   selectedIcon: const Icon(
-                    EvaIcons.shoppingCartOutline,
+                    EvaIcons.shoppingBagOutline,
                   ),
                   icon: const Icon(
-                    EvaIcons.shoppingCart,
+                    EvaIcons.shoppingBag,
                   ),
                   label: dashBoardTabs[2].toCapitalized(),
                 ),
@@ -188,7 +188,7 @@ class DashBoardState extends State<DashBoard> with TickerProviderStateMixin {
 
 List<String> dashBoardTabs = [
   'home',
+  'offers',
   'orders',
-  'cart',
   'profile',
 ];
