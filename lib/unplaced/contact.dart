@@ -43,12 +43,12 @@ class _ContactViewState extends State<ContactView> {
             const ListTile(
               leading: Icon(Icons.pin_drop),
               title: Text(
-                'Abc Technologies LLP',
+                'Shop With More Pvt ltd.',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
             const Text(
-              '005,Building no.12-B,Sangeet complex,xyz city',
+              '005,Building no.12-B,Sangeet complex,Ambala Cantt',
               textAlign: TextAlign.start,
             ),
             ListTile(
@@ -56,15 +56,15 @@ class _ContactViewState extends State<ContactView> {
                 title: Align(
                   // ignore: sort_child_properties_last
                   child: TextButton(
-                    child: const Text('9813569325'),
+                    child: const Text('9350645254'),
                     // ignore: deprecated_member_use
                     onLongPress: () {
                       // ignore: deprecated_member_use
-                      launch('sms:98132562125');
+                      launch('sms:9306991070');
                     },
                     onPressed: () {
                       // ignore: deprecated_member_use
-                      launch('tel:98132562125');
+                      launch('tel:9034286092');
                     },
                   ),
                   alignment: Alignment(-1.2, 0),
@@ -78,7 +78,7 @@ class _ContactViewState extends State<ContactView> {
                 child: TextButton(
                   onPressed: () {},
                   child: const Text(
-                    'support@mohit.dev',
+                    'support@teamshopwithmore.com',
                   ),
                 ),
                 alignment: const Alignment(-1.2, 0),
@@ -94,12 +94,12 @@ class _ContactViewState extends State<ContactView> {
             const ListTile(
               leading: Icon(Icons.pin_drop),
               title: Text(
-                'Abc Technologies LLP',
+                'Shop With More LLP',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
             const Text(
-              '0001,Building no.12-B,Sangeet complex,xyz city',
+              '0001,Building no.12-B,Sangeet complex,Ambala Cantt',
               textAlign: TextAlign.start,
             ),
             ListTile(
@@ -107,15 +107,15 @@ class _ContactViewState extends State<ContactView> {
                 title: Align(
                   // ignore: sort_child_properties_last
                   child: TextButton(
-                    child: const Text('9813569325'),
+                    child: const Text('9350645254'),
                     // ignore: deprecated_member_use
                     onLongPress: () {
                       // ignore: deprecated_member_use
-                      launch('sms:98132562125');
+                      launch('sms:9306991070');
                     },
                     onPressed: () {
                       // ignore: deprecated_member_use
-                      launch('tel:98132562125');
+                      launch('tel:9034286092');
                     },
                   ),
                   alignment: Alignment(-1.2, 0),
@@ -129,7 +129,7 @@ class _ContactViewState extends State<ContactView> {
                   child: TextButton(
                     onPressed: () {},
                     child: const Text(
-                      'support@mohit.com',
+                      'support@teamshopwithmore.com',
                     ),
                   ),
                   alignment: const Alignment(-1.2, 0),
@@ -141,7 +141,7 @@ class _ContactViewState extends State<ContactView> {
                   child: TextButton(
                     onPressed: () {},
                     child: const Text(
-                      'sales`@mohit.com',
+                      'sales@teamshopwithmore.com',
                     ),
                   ),
                   alignment: const Alignment(-1.2, 0),

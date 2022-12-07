@@ -41,7 +41,7 @@ class _AboutUsState extends State<AboutUs> {
           ),
           const ListTile(
             title: Text(
-              'Welcome to Flutter App',
+              'Welcome to ShopWithMore',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 23),
             ),
