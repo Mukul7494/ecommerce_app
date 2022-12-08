@@ -42,7 +42,7 @@ class BuildMenu extends ConsumerWidget {
           ),
           ListTile(
             onTap: () {
-              context.push('/');
+              context.push('/producthome');
             },
             leading: const Icon(Icons.home, size: 20.0, color: Colors.white),
             title: const Text("Home"),
@@ -155,7 +155,7 @@ class BuildMenu extends ConsumerWidget {
               padding: const EdgeInsets.only(left: 150),
               height: 100,
               child: const Text(
-                "   V0.0.1[dev]\nBuild By Mohit,Ankit,Aditya",
+                "V0.0.1[dev]\nBuild By Mohit,Ankit,Aditya",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(202, 224, 118, 69),

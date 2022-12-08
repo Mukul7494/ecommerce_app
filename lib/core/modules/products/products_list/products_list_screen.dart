@@ -1,9 +1,11 @@
 import 'package:ecomerce_app/core/modules/products/products_list/products_grid.dart';
+import 'package:ecomerce_app/core/modules/products/products_list/products_search_text_field.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../addon/responsive_center.dart';
 import '../../../../theme/utils/app_sizes.dart';
-import '../search/search_field.dart';
+import '../../home/Custom_AppBar/Custom_appBar.dart';
+
 
 /// Shows the list of products with a search field at the top.
 class ProductsListScreen extends StatefulWidget {
@@ -43,7 +45,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: const HomeAppBar(),
+      appBar: const CustomAppBar(),
       body: CustomScrollView(
         controller: _scrollController,
         slivers: const [

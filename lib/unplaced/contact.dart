@@ -16,7 +16,7 @@ class _ContactViewState extends State<ContactView> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            context.go('/');
+            Navigator.of(context, rootNavigator: true).pop(context);
           },
           icon: const Icon(Icons.arrow_back_ios_new),
         ),

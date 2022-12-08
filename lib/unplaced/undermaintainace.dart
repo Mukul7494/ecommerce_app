@@ -40,7 +40,7 @@ class WorkingProgress extends StatelessWidget {
             const SizedBox(height: 16),
             ElevatedButton(
               child: const Text('Back to home'),
-              onPressed: () => context.go('/'),
+              onPressed: () => context.go('/home'),
             ),
           ],
         ),

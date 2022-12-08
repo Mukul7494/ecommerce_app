@@ -2,7 +2,7 @@ import 'package:ecomerce_app/utils/replaced_range.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../search/provider.dart';
+import 'products_search_state_provider.dart';
 
 /// Search field used to filter products by name
 class ProductsSearchTextField extends ConsumerStatefulWidget {

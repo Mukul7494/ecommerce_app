@@ -29,7 +29,7 @@ class CopyRights extends StatelessWidget {
           GestureDetector(
             onTap: () => LaunchUtils.launchUrl('https://www.google.com'),
             child: Text(
-              'Made with ❤️ by Mohit, Ankit, Additya\nAce Ambala',
+              'Made with ❤️ by Mohit, Ankit, Additya\n                   Ace Ambala',
               style: TextStyle(
                 letterSpacing: 1,
                 wordSpacing: 1,

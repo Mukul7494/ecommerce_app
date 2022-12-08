@@ -19,6 +19,9 @@ import '../../../addon/action_text_button.dart';
 import '../../../unplaced/floatingright.dart';
 import '../../router/go_router.dart';
 import '../products/products_list/products_grid.dart';
+import '../products/products_list/products_list_screen.dart';
+import '../products/products_list/products_search_state_provider.dart';
+import '../products/products_list/products_search_text_field.dart';
 import 'Custom_AppBar/more_menu.dart';
 import 'Custom_AppBar/shopping_cart.dart';
 import 'widget/text_widget.dart';
@@ -31,6 +34,7 @@ class HomeView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final _controller = TextEditingController();
     var screenSize = MediaQuery.of(context).size;
     return Consumer(
         builder: (BuildContext context, WidgetRef ref, Widget? child) {
@@ -127,30 +131,45 @@ class HomeView extends ConsumerWidget {
                 BannerView(
                   screenSize: screenSize,
                 ),
-                Hero(
-                  tag: 'search',
-                  child: Card(
-                    child: ListTile(
-                      title: FormBuilderTextField(
-                        name: "search",
-                        onChanged: (value) {},
-                        decoration: const InputDecoration(
-                          hintText: "search",
-                          border: InputBorder.none,
-                          disabledBorder: InputBorder.none,
-                          enabledBorder: InputBorder.none,
-                          errorBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          focusedErrorBorder: InputBorder.none,
-                          filled: false,
-                        ),
-                        autofocus: false,
-                      ),
-                      trailing: const Icon(EvaIcons.search),
-                    ),
-                  ),
-                ),
-                const PriceSort(),
+                const ProductsSearchTextField(),
+                // Hero(
+                //   tag: 'search',
+                //   child: Card(
+                //     child: ListTile(
+                //       title: FormBuilderTextField(
+                //         name: "search",
+                //         onChanged: (text) => ref
+                //             .read(productsSearchQueryStateProvider.notifier)
+                //             .state = text!,
+                //         decoration: InputDecoration(
+                //           hintText: "search",
+                //           border: InputBorder.none,
+                //           disabledBorder: InputBorder.none,
+                //           enabledBorder: InputBorder.none,
+                //           errorBorder: InputBorder.none,
+                //           focusedBorder: InputBorder.none,
+                //           focusedErrorBorder: InputBorder.none,
+                //           filled: false,
+                //           suffixIcon: value.text.isNotEmpty
+                //               ? IconButton(
+                //                   onPressed: () {
+                //                     _controller.clear();
+                //                     ref
+                //                         .read(productsSearchQueryStateProvider
+                //                             .notifier)
+                //                         .state = '';
+                //                   },
+                //                   icon: const Icon(Icons.clear),
+                //                 )
+                //               : null,
+                //         ),
+                //         autofocus: false,
+                //       ),
+                //       trailing: const Icon(EvaIcons.search),
+                //     ),
+                //   ),
+                // ),
+                // const PriceSort(),
                 buildCustom1Text(),
                 const ProductsGrid(),
                 BottomBar(),

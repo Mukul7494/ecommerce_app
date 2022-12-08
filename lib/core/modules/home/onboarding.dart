@@ -1,11 +1,14 @@
+import 'package:ecomerce_app/core/modules/home/dash_board.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:lottie/lottie.dart';
 
 class OnBoarding extends StatefulWidget {
-  final void Function() onDone;
-  const OnBoarding({Key? key, required this.onDone}) : super(key: key);
+  const OnBoarding({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<OnBoarding> createState() => _OnBoardingState();
@@ -25,7 +28,7 @@ class _OnBoardingState extends State<OnBoarding> {
         scrollPhysics: const BouncingScrollPhysics(),
         pages: [
           PageViewModel(
-            title: 'Welcome TO Ecommerce App',
+            title: 'Welcome TO ShopWithMo',
             body:
                 'We are the only #1 Oldest, Trusted And Reputed Seller Across India With 13 Years Proven Track Record of providing Top-notch  services.',
             image: Center(
@@ -54,11 +57,17 @@ class _OnBoardingState extends State<OnBoarding> {
             ),
           )
         ],
-        onDone: widget.onDone,
-        showSkipButton: false,
+        onDone: () {
+          context.go('/home');
+        },
+        onSkip: () {
+          context.go('/home');
+        },
+        // !(showBackButton && showSkipButton),
+        showSkipButton: true,
         skipOrBackFlex: 0,
         nextFlex: 0,
-        showBackButton: true,
+        showBackButton: false,
         back: const Icon(Icons.arrow_back),
         skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w600)),
         next: const Icon(Icons.arrow_forward),

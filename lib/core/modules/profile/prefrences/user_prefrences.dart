@@ -19,7 +19,7 @@ class UserPrefrences extends StatelessWidget {
       appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              context.push('/');
+              context.push('/home');
             },
             icon: const Icon(Icons.arrow_back_ios_new),
           ),

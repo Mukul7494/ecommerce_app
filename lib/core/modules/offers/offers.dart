@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
+import 'package:responsive_framework/responsive_row_column.dart';
 import 'package:shrink_sidemenu/shrink_sidemenu.dart';
 import '../../../addon/action_text_button.dart';
+import '../../../theme/components/components.dart';
 import '../../../theme/utils/app_sizes.dart';
 import '../../router/go_router.dart';
 import '../home/Custom_AppBar/more_menu.dart';
@@ -103,9 +105,8 @@ class _OfferViewState extends State<OfferView> {
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 0.3,
                 ),
-                Featured(screenSize: screenSize),
                 SizedBox(
-                  height: 200,
+                  height: 100,
                 ),
                 Center(
                   child: AnimatedTextKit(
@@ -149,6 +150,7 @@ class _OfferViewState extends State<OfferView> {
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 0.2,
                 ),
+
                 // const Text(
                 //   'You Have Not Purchased Anything',
                 //   textScaleFactor: 1.5,

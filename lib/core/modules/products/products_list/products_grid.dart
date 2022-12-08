@@ -24,26 +24,11 @@ class ProductsGrid extends ConsumerWidget {
     return AsyncValueWidget<List<Product>>(
       value: productsListValue,
       data: (products) => products.isEmpty
-          ? Column(
-              children: [
-                LottieBuilder.asset(
-                  'assets/lottie/nodata.json',
-                  repeat: false,
-                  fit: BoxFit.contain,
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.3,
-                ),
-                gapH4,
-                const Text(
-                  'No Product available',
-                  textScaleFactor: 1.5,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey,
-                  ),
-                ),
-              ],
+          ? Center(
+              child: Text(
+                'No products found'.hardcoded,
+                style: Theme.of(context).textTheme.headline4,
+              ),
             )
           : ProductsLayoutGrid(
               itemCount: products.length,

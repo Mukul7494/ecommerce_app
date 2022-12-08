@@ -182,7 +182,7 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
                           width: 10,
                         ),
                         const Text(
-                          "20",
+                          "isfalse",
                         ),
                       ],
                     ),
@@ -209,7 +209,7 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
                           width: 10,
                         ),
                         const Text(
-                          "+919991119999",
+                          "isFalse",
                         ),
                       ],
                     ),
@@ -372,7 +372,7 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
             gapH8,
             ElevatedButton(
               child: const Text('Settings'),
-              onPressed: () => context.go('/theme'),
+              onPressed: () => context.go('/settings'),
             ),
           ],
         ),

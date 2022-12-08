@@ -45,15 +45,15 @@ class _BannerViewState extends State<BannerView> {
   final PageController controller = PageController();
 
   List<String> images = [
+    'assets/images/24.jpg',
     'assets/images/custom.jpg',
-    'assets/images/custom.jpg',
-    'assets/images/custom.jpg',
+    'assets/images/25.jpg',
     // 'assets/images/qw4.png',
   ];
   final List<String> assets = [
+    'assets/images/24.jpg',
     'assets/images/custom.jpg',
-    'assets/images/custom.jpg',
-    'assets/images/custom.jpg',
+    'assets/images/25.jpg',
     // 'assets/images/qw4.png',
   ];
 

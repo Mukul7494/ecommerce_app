@@ -18,15 +18,19 @@ import '../modules/auth/signin/signin_state.dart';
 import '../modules/cart/shopping_cart/view.dart';
 import '../modules/checkout/checkount_view.dart';
 import '../modules/home/Custom_AppBar/shopping_cart.dart';
+import '../modules/home/onboarding.dart';
 import '../modules/orders/view.dart';
 import '../modules/products/product_screen/product_screen.dart';
+import '../modules/products/products_list/products_list_screen.dart';
 import '../modules/reviews/leave_review_screen.dart';
 import 'error_404.dart';
 import '../modules/auth/provider.dart';
 import '../modules/home/dash_board.dart';
 
 enum AppRoute {
+  splash,
   home,
+  producthome,
   product,
   leaveReview,
   cart,
@@ -59,9 +63,14 @@ final routerProvider = Provider<GoRouter>((ref) {
     refreshListenable: GoRouterRefreshStream(authRepository.authStateChanges()),
     routes: [
       GoRoute(
-        path: '/',
+        path: '/home',
         name: AppRoute.home.name,
         redirect: (_) => '/dashboard/${dashBoardTabs[0]}',
+      ),
+      GoRoute(
+        path: '/',
+        name: AppRoute.splash.name,
+        builder: (context, state) => const OnBoarding(),
       ),
       GoRoute(
         path: '/dashboard/:id',
@@ -71,6 +80,11 @@ final routerProvider = Provider<GoRouter>((ref) {
             selectedTab: state.params['id']!,
           );
         },
+      ),
+      GoRoute(
+        path: '/producthome',
+        name: AppRoute.producthome.name,
+        builder: (context, state) => const ProductsListScreen(),
       ),
       GoRoute(
         path: '/product/:id',

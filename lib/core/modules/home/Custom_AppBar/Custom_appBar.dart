@@ -30,7 +30,7 @@ class CustomAppBar extends ConsumerWidget with PreferredSizeWidget {
       return AppBar(
         leading: IconButton(
           onPressed: () {
-            context.go('/');
+            context.go('/home');
           },
           icon: const Icon(
             Icons.arrow_back_ios_new,

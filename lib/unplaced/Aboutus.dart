@@ -15,9 +15,8 @@ class _AboutUsState extends State<AboutUs> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            context.go('/');
-          },
+          onPressed: () =>
+              Navigator.of(context, rootNavigator: true).pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
         title: const Text('AboutUs'),
