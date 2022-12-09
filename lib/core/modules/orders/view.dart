@@ -20,7 +20,7 @@ class OrdersListScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            context.go('/');
+            context.go('/home');
           },
           icon: const Icon(
             Icons.close,

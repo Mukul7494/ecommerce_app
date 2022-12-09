@@ -28,7 +28,7 @@ class _OnBoardingState extends State<OnBoarding> {
         scrollPhysics: const BouncingScrollPhysics(),
         pages: [
           PageViewModel(
-            title: 'Welcome TO ShopWithMo',
+            title: 'Welcome TO ShopWithMore',
             body:
                 'We are the only #1 Oldest, Trusted And Reputed Seller Across India With 13 Years Proven Track Record of providing Top-notch  services.',
             image: Center(

@@ -48,11 +48,11 @@ final routerProvider = Provider<GoRouter>((ref) {
       final isLoggedIn = authRepository.currentUser != null;
       if (isLoggedIn) {
         if (state.location == '/signIn') {
-          return '/';
+          return '/home';
         }
       } else {
         if (state.location == '/orders') {
-          return '/';
+          return '/home';
         }
       }
       return null;
