@@ -26,6 +26,14 @@ class ShoppingCartScreen extends ConsumerWidget {
     final state = ref.watch(shoppingCartScreenControllerProvider);
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () =>
+              Navigator.of(context, rootNavigator: true).pop(context),
+          icon: const Icon(
+            Icons.close,
+            color: Colors.white,
+          ),
+        ),
         title: Text('Shopping Cart'.hardcoded),
       ),
       body: Consumer(
